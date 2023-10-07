@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+
+.header {}
+
+.email-title {
+    padding: 15px;
+    background-color: #88FF88;
+    font-size: 32px;
+    color: #FFF;
+    text-align: center;
+}
+
+.main {}
+
+.email-content {}
+
+.email-content {}
+
+.email-click {}

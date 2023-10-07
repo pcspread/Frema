@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.select {
+    padding: 32px 32px 5px;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    border-bottom: 1px solid #000;
+}
+
+.select-item {
+    padding: 0 32px;
+    color: #777;
+    font-weight: bold;
+}
+
+.select-item:hover {
+    cursor: pointer;
+    color: #289ADC;
+}
+
+.items {
+    padding: 15px 52px;
+}
+
+.items-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.items-item {
+    padding: 52px;
+    list-style: none;
+}
+
+.items-item__image {
+    transform: scale(3);
+}
