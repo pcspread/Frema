@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// Controller読込
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('items');
 });
+
+Route::get('/send/email', function () {
+    return view('auth.send_email');
+});
+
+// view表示：auth.register
+Route::get('/register', [UserController::class, 'indexRegister']);
+
+// view表示：auth.login
+Route::get('/login', [UserController::class, 'indexLogin']);
+
+// view表示：auth.verify_email
+Route::get('/verify/email', [UserController::class, 'indexMail']);
