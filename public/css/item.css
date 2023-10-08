@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .item-section {
-    padding: 52px;
+    padding: 15px 52px;
     display: flex;
     justify-content: center;
 }
@@ -21,24 +21,26 @@
 
 .item-name {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     margin-bottom: 15px;
 }
 
 .item-name__label {
     font-size: 28px;
+    margin-right: 52px;
 }
 
 .item-brand {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     margin-bottom: 15px;
 }
 
 .item-brand__label {
     font-weight: normal;
+    margin-right: 60px;
 }
 
 .item-price {
@@ -99,6 +101,7 @@
 }
 
 .purchase-button__instance:hover {
+    cursor: pointer;
     opacity: .7;
 }
 
