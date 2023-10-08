@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // Controller読込
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('items');
-});
+Route::get('/', [ItemController::class, 'indexItem']);
+
+// view表示：item
+Route::get('/item', [ItemController::class, 'showItemDetail']);
 
 Route::get('/send/email', function () {
     return view('auth.send_email');
