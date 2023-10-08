@@ -33,6 +33,11 @@
     list-style: none;
 }
 
-.items-item__image {
+.item__image {
     transform: scale(3);
+}
+
+.item-link {
+    display: block;
+    padding: 32px;
 }

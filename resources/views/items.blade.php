@@ -14,7 +14,8 @@
         <ul class="items-list">
             @for ($i = 0; $i < 11; $i++)
             <li class="items-item">
-                <img class="items-item__image" src="https://dummyimage.com/30x30/000/0011ff" alt="item-image">
+                <img class="item__image" src="https://dummyimage.com/30x30/000/0011ff" alt="商品画像">
+                <a class="item-link" href="/item">商品</a>
             </li>
             @endfor
         </ul>
