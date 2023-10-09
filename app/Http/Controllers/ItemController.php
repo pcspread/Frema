@@ -27,4 +27,37 @@ class ItemController extends Controller
     {
         return view('item');
     }
+
+    /**
+     * view表示
+     * mypage
+     * @param void
+     * @return view
+     */
+    public function showMypage()
+    {
+        return view('mypage');
+    }
+
+    /**
+     * view表示
+     * profile
+     * @param void
+     * @return view
+     */
+    public function editProfile()
+    {
+        return view('profile');
+    }
+
+    /**
+     * view表示
+     * sell
+     * @param void
+     * @return view
+     */
+    public function editSell()
+    {
+        return view('sell');
+    }
 }

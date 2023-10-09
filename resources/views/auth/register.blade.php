@@ -8,7 +8,7 @@
 <div class="register-section">
     <h1 class="register-title">会員登録</h1>
 
-    <div class="register-form">
+    <form class="register-form" action="/verify/email" method="GET">
         <div class="register-item">
             <label class="register-item__title" for="email">メールアドレス</label>
             <input class="register-item__input" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="入力欄" autofocus>
@@ -25,6 +25,6 @@
             <button class="register-button">登録する</button>
             <a class="register-click__login" href="/login">ログインはこちら</a>
         </div>
-    </div>
+    </form>
 </div>
 @endsection

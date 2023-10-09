@@ -1,43 +1,43 @@
 @charset "UTF-8";
 
-.register-section {
+.address-section {
     width: 50%;
     max-width: 400px;
-    margin: 100px auto 52px;
+    margin: 52px auto;
     text-align: center;
 }
 
-.register-title {
+.address-title {
     margin-bottom: 45px;
     font-size: 24px;
 }
 
-.register-item__title {
+.address-item__title {
     display: block;
     text-align: left;
     font-weight: bold;
-    margin-bottom: 5px;
     font-size: 14px;
+    margin-bottom: 5px;
 }
 
-.register-item__input {
+.address-item__input {
     display: block;
     width: 100%;
-    text-align: left;
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #888;
+    text-align: left;
 }
 
-.register-item__error {
+.address-item__error {
     min-height: 32px;
 }
 
-.register-buttons {
+.address-buttons {
     margin-top: 15px;
 }
 
-.register-button {
+.address-button {
     display: block;
     width: 100%;
     height: 30px;
@@ -47,21 +47,7 @@
     color: #FFF;
 }
 
-.register-button:hover {
+.address-button:hover {
     cursor: pointer;
     opacity: .8;
-}
-
-.register-click__login {
-    display: block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #289ADC;
-    font-size: 14px;
-}
-
-.register-click__login:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-underline-offset: 3px;
 }

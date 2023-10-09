@@ -15,12 +15,10 @@
             <h1 class="item-name__label">
                 商品名
             </h1>
-            <p class="item-name__instance">ウォーターブリーズ</p>
         </div>
 
         <div class="item-brand">
             <h3 class="item-brand__label">ブランド名</h3>
-            <p class="item-brand__instance">ウォーター</p>
         </div>
 
         <div class="item-price">
@@ -37,7 +35,7 @@
             </div>
     
             <div class="item-comment">
-                <a class="item-comment__click" href="">💭</a>
+                <a class="item-comment__click" href="/item/comment">💭</a>
                 <p class="item-comment__number">3</p>
             </div>
         </div>

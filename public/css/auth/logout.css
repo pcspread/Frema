@@ -1,39 +1,36 @@
 @charset "UTF-8";
 
-.email-section {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.logout-section {
     width: 70%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 300px;
+    margin: 180px auto 52px;
     text-align: center;
 }
 
-.email-title {
+.logout-title {
     margin-bottom: 45px;
     font-size: 24px;
 }
 
-.email-item__text {
+.logout-item__text {
+    padding: 24px;
     min-height: 32px;
     text-align: left;
 }
 
-.email-button {
+.logout-button {
     margin-top: 15px;
 }
 
-.email-click {
+.logout-click {
     display: block;
-    margin-top: 15px;
+    margin-top: 32px;
     text-decoration: none;
     color: #289ADC;
     font-size: 14px;
 }
 
-.email-click:hover {
+.logout-click:hover {
     text-decoration: underline;
     text-decoration-thickness: 3px;
     text-underline-offset: 3px;
