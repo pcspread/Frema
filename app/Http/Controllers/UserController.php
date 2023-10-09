@@ -38,4 +38,26 @@ class UserController extends Controller
     {
         return view('auth.verify_email');
     }
+    
+    /**
+     * view表示
+     * address
+     * @param void
+     * @return view
+     */
+    public function showAddress()
+    {
+        return view('address');
+    }
+    
+    /**
+     * view表示
+     * auth.logout
+     * @param void
+     * @return view
+     */
+    public function storeLogout()
+    {
+        return view('auth.logout');
+    }
 }

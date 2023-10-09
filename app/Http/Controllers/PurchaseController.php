@@ -16,4 +16,15 @@ class PurchaseController extends Controller
     {
         return view('purchase');
     }
+
+    /**
+     * view表示
+     * thanks_purchase
+     * @param void
+     * @return view
+     */
+    public function showPurchaseMail()
+    {
+        return view('thanks_purchase');
+    }
 }

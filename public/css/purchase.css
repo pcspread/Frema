@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0 145px;
+    padding: 35px 0 145px;
 }
 
 .purchase-method__form {
@@ -100,7 +100,7 @@
 }
 
 .purchase-result__title.price {
-    padding-bottom: 80px;
+    padding-bottom: 70px;
 }
 
 .purchase-result__content {
@@ -115,6 +115,11 @@
     border-radius: 3px;
     background-color: #FF5555;
     color: #FFF;
+}
+
+.purchase-result__button:hover {
+    cursor: pointer;
+    opacity: .8;
 }
 
 @media screen and (max-width: 960px) {

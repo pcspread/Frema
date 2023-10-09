@@ -13,7 +13,6 @@
             <div class="purchase-image__sub">
                 <div class="purchase-name">
                     <h1 class="purchase-name__label">商品名</h1>
-                    <p class="purchase-name__instance">ウォーターフォール</p>
                 </div>
                 <h3 class="purchase-price">¥47,000</h3>
             </div>
@@ -21,7 +20,6 @@
 
         <div class="purchase-method">
             <form class="purchase-method__form" action="">
-                <h2 class="purchase-method__title">支払い方法</h2>
                 <select class="purchase-method__select" name="" id="">
                     <option class="purchase-method__select-record" value="case1">口座振替</option>
                     <option class="purchase-method__select-record" value="case2">コンビニ払い</option>
@@ -33,12 +31,12 @@
 
         <div class="purchase-carry">
             <h2 class="purchase-carry__title">配送先</h2>
-            <a class="purchase-carry__click" href="">変更する</a>
+            <a class="purchase-carry__click" href="/item/address">変更する</a>
         </div>
     </div>
 
     <div class="purchase-result">
-        <form class="purchase-result__form" action="">
+        <form class="purchase-result__form" action="/item/purchase/email" method="GET">
             <table class="purchase-result__table">
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title price">商品代金</td>
