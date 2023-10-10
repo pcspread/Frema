@@ -14,117 +14,97 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('items')->insert([
-            [
-                'user_id' => 1,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 1,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'パーカー',
-                'content' => '温かく、着心地の良いパーカーです',
-                'price' => '10000'
-            ],
-            [
-                'user_id' => 1,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 2,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'スウェット',
-                'content' => '温かいスウェットです',
-                'price' => '1000'
-            ],
-            [
-                'user_id' => 2,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 2,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'カーディガン',
-                'content' => 'さっと羽織れるカーディガンです',
-                'price' => '5000'
-            ],
-            [
-                'user_id' => 2,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 1,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'ジャケット',
-                'content' => '頑丈な作りのジャケットです',
-                'price' => '5000'
-            ],
-            [
-                'user_id' => 3,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 1,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'MA-1',
-                'content' => '使いやすいジャケットです',
-                'price' => '5000'
-            ],
-            [
-                'user_id' => 3,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 1,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'ティラードジャケット',
-                'content' => '綺麗なジャケットです',
-                'price' => '5000'
-            ],
-            [
-                'user_id' => 4,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 1,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'トレンチコート',
-                'content' => '色んな服装に合うコートです',
-                'price' => '3000'
-            ],
-            [
-                'user_id' => 4,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 2,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'ニット',
-                'content' => 'とても温かいニットです',
-                'price' => '100000'
-            ],
-            [
-                'user_id' => 5,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 3,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'シャツ',
-                'content' => 'きれいめのシャツです',
-                'price' => '15000'
-            ],
-            [
-                'user_id' => 5,
-                'brand_id' => mt_rand(1,5),
-                'category_id' => 3,
-                'condition_id' => 3,
-                'category' => 'メンズ',
-                'image' =>'https://dummyimage.com/200x200/888888/888888',
-                'name' => 'カットソー',
-                'content' => '品質の良いカットソーです',
-                'price' => '30000'
-            ]
-        ]);
+        for ($i = 1; $i <= 5; $i++) {
+            DB::table('items')->insert([
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 1,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'パーカー',
+                    'content' => '温かく、着心地の良いパーカーです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 2,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'スウェット',
+                    'content' => '温かいスウェットです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 2,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'カーディガン',
+                    'content' => 'さっと羽織れるカーディガンです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 1,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'ジャケット',
+                    'content' => '頑丈な作りのジャケットです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 1,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'トレンチコート',
+                    'content' => '色んな服装に合うコートです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 2,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'ニット',
+                    'content' => 'とても温かいニットです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 3,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'シャツ',
+                    'content' => 'きれいめのシャツです',
+                    'price' => $i * 1000
+                ],
+                [
+                    'user_id' => $i,
+                    'brand_id' => mt_rand(1,5),
+                    'category_id' => 3,
+                    'condition_id' => 3,
+                    'gender' => 'メンズ',
+                    'image' =>'https://dummyimage.com/200x200/888888/888888',
+                    'name' => 'カットソー',
+                    'content' => '品質の良いカットソーです',
+                    'price' => $i * 1000
+                ]
+            ]);
+        }
     }
 }

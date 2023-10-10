@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/items.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/items.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="items-section">
     <div class="select">
@@ -14,7 +18,10 @@
         @foreach ($items as $item)
         <div class="items-item">
             <img class="item__image" src="{{ $item['image'] }}" alt="商品画像">
-            <a class="item-link" href="/item/{{ $item['id'] }}">{{ $item['name'] }}</a>
+            <p class="item-price">¥{{ $item['price'] }}</p>
+            <a class="item-link" href="/item/{{ $item['id'] }}">
+                【{{ $item->brand['name'] }}】{{ $item->category['name'] }} {{ $item['gender'] }} 「{{ $item['name'] }}」
+            </a>
         </div>
         @endforeach
     </div>
