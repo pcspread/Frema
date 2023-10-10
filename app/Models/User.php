@@ -25,6 +25,8 @@ class User extends Authenticatable
         'postcode',
         'address',
         'building',
+        'remember_token',
+        'email_verified_at',
     ];
 
     /**

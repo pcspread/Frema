@@ -16,11 +16,11 @@ return new class extends Migration
                 $table->id();
                 $table->string('email', 191)->unique();
                 $table->string('password', 191);
-                $table->string('name', 50);
-                $table->string('image');
-                $table->integer('postcode')->unsigned();
-                $table->string('address', 191);
-                $table->string('building', 191);
+                $table->string('name', 50)->nullable();
+                $table->string('image')->nullable();
+                $table->integer('postcode')->unsigned()->nullable();
+                $table->string('address', 191)->nullable();
+                $table->string('building', 191)->nullable();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->rememberToken();
                 $table->timestamps();

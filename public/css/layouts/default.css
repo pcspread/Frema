@@ -70,6 +70,27 @@
     color: #FFF;
 }
 
+.message-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 400px;
+    width: 100%;
+    background-color: #88FF88;
+    border-radius: 0 0 0 10px;
+    z-index: 15;
+}
+
+.message-box.danger {
+    background-color: #FF5555;
+}
+
+.message-box__text {
+    color: #FFF;
+    font-weight: bold;
+    padding: 15px;
+}
+
 @media screen and (max-width: 768px) {
     .header {
         display: block;

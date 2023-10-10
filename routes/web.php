@@ -30,11 +30,23 @@ Route::get('/send/email', function () {
 // view表示：auth.register
 Route::get('/register', [UserController::class, 'indexRegister']);
 
+// store処理
+Route::post('/register', [UserController::class, 'storeRegister']);
+
 // view表示：auth.login
 Route::get('/login', [UserController::class, 'indexLogin']);
 
+// login処理
+Route::post('/login', [UserController::class, 'storeLogin']);
+
 // view表示：auth.verify_email
 Route::get('/verify/email', [UserController::class, 'indexMail']);
+
+// 認証メール再送信処理
+Route::post('/verify/email', [UserController::class, 'resendMail']);
+
+// view表示：auth.thanks
+Route::get('/thanks', [UserController::class, 'indexThanks']);
 
 // view表示：auth.logout
 Route::get('/logout', [UserController::class, 'storeLogout']);

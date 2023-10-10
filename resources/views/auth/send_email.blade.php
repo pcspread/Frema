@@ -24,10 +24,10 @@
                 この度は、COACHTECHフリマサービスをご利用いただき、誠にありがとうございます。
             </p>
             <p class="email-content__text">
-                こちらは、{{}}様専用のメール認証用の確認メールです。
+                こちらは、メール認証用の確認メールです。
                 下記ボタンをクリックいただくと、登録が完了します。
             </p>
-            <a class="email-click" href="/">登録を完了する</a>
+            <a class="email-click" href="http://localhost/thanks?token={{ $token }}" target="_blank">登録を完了する</a>
         </div>
     </main>
 </body>
