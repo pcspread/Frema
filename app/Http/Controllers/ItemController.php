@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Model読込
+use App\Models\Item;
 
 class ItemController extends Controller
 {
@@ -14,18 +16,22 @@ class ItemController extends Controller
      */
     public function indexItem()
     {
-        return view('items');
+        $items = Item::all();
+
+        return view('items', compact('items'));
     }
 
     /**
      * view表示
      * item
-     * @param void
+     * @param $id
      * @return view
      */
-    public function showItemDetail()
+    public function showItemDetail($id)
     {
-        return view('item');
+        $item = Item::find($id);
+
+        return view('item', compact('item'));
     }
 
     /**

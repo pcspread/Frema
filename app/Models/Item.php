@@ -17,4 +17,34 @@ class Item extends Model
         'content',
         'price',
     ];
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return 
+     */
+    public function brand()
+    {
+        return $this->hasOne(Brand::class);
+    }
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return 
+     */
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return
+     */
+    public function condition()
+    {
+        return $this->hasOne(Condition::class);
+    }
 }

@@ -7,22 +7,22 @@
 @section('content')
 <div class="item-section">
     <div class="item-image">
-        <img class="item-image__instance" src="https://dummyimage.com/150x200/000/0011ff" alt="商品画像">
+        <img class="item-image__instance" src="{{ $item['image'] }}" alt="商品画像">
     </div>
 
     <div class="item-content">
         <div class="item-name">
             <h1 class="item-name__label">
-                商品名
+                {{ $item['name'] }}
             </h1>
         </div>
 
         <div class="item-brand">
-            <h3 class="item-brand__label">ブランド名</h3>
+            <h3 class="item-brand__label">{{ $item->brand['brand'] }}</h3>
         </div>
 
         <div class="item-price">
-            <p class="item-price__instance">¥47,000(値段)</p>
+            <p class="item-price__instance">¥{{ $item['price'] }}(値段)</p>
         </div>
 
         <div class="item-impression">
@@ -51,9 +51,7 @@
                 商品説明
             </h2>
             <p class="item-description__instance">
-                カラー：グレー
-                商品の状態は良好です。傷もありません。
-                購入後、即発送いたします。
+                {{ $item['content'] }}
             </p>
         </div>
 
@@ -62,14 +60,15 @@
             <div class="item-category">
                 <h3 class="item-category__title">カテゴリー</h3>
                 <ul class="item-category__list">
-                    <li class="item-category__record">洋服</li>
-                    <li class="item-category__record">メンズ</li>
+                    @foreach ($item->categories as $category)
+                    <li class="item-category__record">{{ $category['category'] }}</li>
+                    @endforeach
                 </ul>
             </div>
 
             <div class="item-condition">
                 <h3 class="item-condition__title">商品の状態</h3>
-                <p class="item-comdition__instance">良好</p>
+                <p class="item-comdition__instance">{{ $item->condition['condition'] }}</p>
             </div>
         </div>
     </div>

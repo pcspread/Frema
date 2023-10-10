@@ -23,23 +23,26 @@
         </div>
 
         <div class="header-search">
-            <input class="header-search__input" type="text" placeholder="なにをお探しですか？">
+            <input class="header-search__input" type="text" placeholder="なにをお探しですか？" value="{{ Auth::id() }}">
         </div>
         
         <div class="header-nav">
             <ul class="nav-list">
+                @if (!Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="/login">ログイン</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/register">会員登録</a>
                 </li>
+                @else
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">ログアウト</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/mypage">マイページ</a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link sell" href="/item/sell">出品</a>
                 </li>

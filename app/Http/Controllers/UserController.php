@@ -175,11 +175,17 @@ class UserController extends Controller
     /**
      * view表示
      * auth.logout
-     * @param void
+     * @param object $request
      * @return view
      */
-    public function storeLogout()
+    public function storeLogout(Request $request)
     {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
         return view('auth.logout');
     }
 }
