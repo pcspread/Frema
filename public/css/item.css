@@ -65,6 +65,10 @@
     text-shadow: 0 0 1px #000;
 }
 
+.item-favorite__click.favorite {
+    color: #FF5555;
+}
+
 .item-favorite__click:hover {
     cursor: pointer;
 }

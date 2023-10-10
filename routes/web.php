@@ -61,6 +61,9 @@ Route::get('/', [ItemController::class, 'indexItem']);
 // view表示：item
 Route::get('/item/{id}', [ItemController::class, 'showItemDetail']);
 
+// お気に入り登録
+Route::post('/item/{id}', [ItemController::class, 'operateFavorite']);
+
 // view表示：purchase
 Route::get('/item/{id}/purchase', [PurchaseController::class, 'showPurchase']);
 
