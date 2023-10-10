@@ -8,21 +8,21 @@
 <div class="purchase-section">
     <div class="purchase-content">
         <div class="purchase-image">
-            <img class="purchase-image__instance" src="https://dummyimage.com/150x200/000/0011ff" alt="商品画像">
+            <img class="purchase-image__instance" src="{{ $item['image'] }}" alt="商品画像">
     
             <div class="purchase-image__sub">
                 <div class="purchase-name">
-                    <h1 class="purchase-name__label">商品名</h1>
+                    <h1 class="purchase-name__label">{{ $item['name'] }}</h1>
                 </div>
-                <h3 class="purchase-price">¥47,000</h3>
+                <h3 class="purchase-price">¥{{ $item['price'] }}</h3>
             </div>
         </div>
 
         <div class="purchase-method">
             <form class="purchase-method__form" action="">
                 <select class="purchase-method__select" name="" id="">
-                    <option class="purchase-method__select-record" value="case1">口座振替</option>
-                    <option class="purchase-method__select-record" value="case2">コンビニ払い</option>
+                    <option class="purchase-method__select-record" value="case1" selected>コンビニ払い</option>
+                    <option class="purchase-method__select-record" value="case2">口座振替</option>
                     <option class="purchase-method__select-record" value="case3">現金払い</option>
                 </select>
                 <button class="purchase-method__button">変更する</button>
@@ -30,7 +30,13 @@
         </div>
 
         <div class="purchase-carry">
-            <h2 class="purchase-carry__title">配送先</h2>
+            <h2 class="purchase-carry__title">
+                @if (empty($item->user['address']))
+                    配送先を選択してください
+                @else
+                    {{ $item->user['address'] }}
+                @endif
+            </h2>
             <a class="purchase-carry__click" href="/item/address">変更する</a>
         </div>
     </div>
@@ -40,15 +46,15 @@
             <table class="purchase-result__table">
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title price">商品代金</td>
-                    <td class="purchase-result__content">¥47,000</td>
+                    <td class="purchase-result__content">¥{{ $item['price'] }}</td>
                 </tr>
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title pay">支払い金額</td>
-                    <td class="purchase-result__content">¥47,000</td>
+                    <td class="purchase-result__content">¥{{ $item['price'] }}</td>
                 </tr>
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title method">支払い方法</td>
-                    <td class="purchase-result__content">コンビニ払い</td>
+                    <td class="purchase-result__content">{{ $item }}</td>
                 </tr>
             </table>
 

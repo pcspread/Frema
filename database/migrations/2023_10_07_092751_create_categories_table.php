@@ -14,8 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('categories')) {
             Schema::create('categories', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('item_id')->constrained()->cascadeOnDelete();
-                $table->string('category', 50);
+                $table->string('name', 50);
             });
         }
     }

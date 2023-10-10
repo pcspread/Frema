@@ -62,7 +62,7 @@ Route::get('/', [ItemController::class, 'indexItem']);
 Route::get('/item/{id}', [ItemController::class, 'showItemDetail']);
 
 // view表示：purchase
-Route::get('/item/purchase', [PurchaseController::class, 'showPurchase']);
+Route::get('/item/{id}/purchase', [PurchaseController::class, 'showPurchase']);
 
 // view表示：address
 Route::get('/item/address', [UserController::class, 'showAddress']);

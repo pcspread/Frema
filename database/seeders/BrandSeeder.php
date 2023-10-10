@@ -14,13 +14,22 @@ class BrandSeeder extends Seeder
      */
     public function run(): void
     {
-        $closes = ['ラルフローレン', 'グローバルワーク', 'ナノユニバース', 'ビームス', 'ポールスミス'];
-        
-        for ($i = 1; $i < 9; $i++) {
-            DB::table('brands')->insert([
-                'item_id' => $i,
-                'brand' => $closes[mt_rand(0, 4)],
-            ]);
-        }
+        DB::table('brands')->insert([
+            [
+                'name' => 'ラルフローレン',
+            ],
+            [
+                'name' => 'グローバルワーク',
+            ],
+            [
+                'name' => 'ナノユニバース',
+            ],
+            [
+                'name' => 'ビームス',
+            ],
+            [
+                'name' => 'ポールスミス',
+            ],
+        ]);
     }
 }

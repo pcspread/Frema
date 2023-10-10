@@ -41,7 +41,7 @@
         </div>
 
         <div class="purchase-button">
-            <form class="purchase-button__form" action="/item/purchase" method="GET">
+            <form class="purchase-button__form" action="/item/{{ $item['id'] }}/purchase" method="GET">
                 <button class="purchase-button__instance">購入する</button>
             </form>
         </div>
