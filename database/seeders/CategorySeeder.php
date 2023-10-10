@@ -14,19 +14,25 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i < 9; $i++) {
             DB::table('categories')->insert([
                 [
-                    'item_id' => $i,
-                    'category' => '洋服'
-                ]
-            ]);
-            DB::table('categories')->insert([
+                    'name' => 'アウター'
+                ],
                 [
-                    'item_id' => $i,
-                    'category' => 'メンズ'
-                ]
+                    'name' => 'カーディガン'
+                ],
+                [
+                    'name' => 'トップス'
+                ],
+                [
+                    'name' => 'ボトムス'
+                ],
+                [
+                    'name' => 'バッグ'
+                ],
+                [
+                    'name' => 'シューズ'
+                ],
             ]);
-        }
     }
 }

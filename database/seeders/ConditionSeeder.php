@@ -14,11 +14,22 @@ class ConditionSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i < 9; $i++) {
-            DB::table('conditions')->insert([
-                'item_id' => $i, 
-                'condition' => '良好',
-            ]);
-        }
+        DB::table('conditions')->insert([
+            [
+                'name' => '新品',
+            ],
+            [
+                'name' => 'ほぼ新品',
+            ],
+            [
+                'name' => '美品',
+            ],
+            [
+                'name' => '良好',
+            ],
+            [
+                'name' => '可',
+            ],
+        ]);
     }
 }

@@ -14,8 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('conditions')) {
             Schema::create('conditions', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('item_id')->constrained()->cascadeOnDelete();
-                $table->string('condition');
+                $table->string('name');
             });
         }
     }

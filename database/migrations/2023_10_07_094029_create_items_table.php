@@ -15,6 +15,10 @@ return new class extends Migration
             Schema::create('items', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+                $table->foreignId('brand_id')->constrained()->cascadeOnDelete();
+                $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+                $table->foreignId('condition_id')->constrained()->cascadeOnDelete();
+                $table->string('category');
                 $table->string('image');
                 $table->string('name', 50);
                 $table->string('content');

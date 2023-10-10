@@ -24,7 +24,7 @@ class ItemController extends Controller
     /**
      * view表示
      * item
-     * @param $id
+     * @param int $id
      * @return view
      */
     public function showItemDetail($id)

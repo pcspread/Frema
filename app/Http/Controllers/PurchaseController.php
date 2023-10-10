@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Model読込
+use App\Models\Item;
 
 class PurchaseController extends Controller
 {
     /**
      * view表示
      * purchase
-     * @param void
+     * @param int $id
      * @return view
      */
-    public function showPurchase()
+    public function showPurchase($id)
     {
-        return view('purchase');
+        // 該当の商品データを取得
+        $item = Item::find($id);
+
+        return view('purchase', compact('item'));
     }
 
     /**

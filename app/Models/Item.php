@@ -12,11 +12,25 @@ class Item extends Model
     // 編集可能なカラムの設定
     protected $fillable = [
         'user_id',
+        'brand_id',
+        'category_id',
+        'condition_id',
+        'category',
         'image',
         'name',
         'content',
         'price',
     ];
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return 
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /**
      * リレーション設定
