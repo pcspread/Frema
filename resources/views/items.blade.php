@@ -11,14 +11,12 @@
         <p class="select-item mine">マイリスト</p>
     </div>
     <div class="items">
-        <ul class="items-list">
-            @for ($i = 0; $i < 11; $i++)
-            <li class="items-item">
-                <img class="item__image" src="https://dummyimage.com/30x30/000/0011ff" alt="商品画像">
-                <a class="item-link" href="/item">商品</a>
-            </li>
-            @endfor
-        </ul>
+        @foreach ($items as $item)
+        <div class="items-item">
+            <img class="item__image" src="{{ $item['image'] }}" alt="商品画像">
+            <a class="item-link" href="/item/{{ $item['id'] }}">{{ $item['name'] }}</a>
+        </div>
+        @endforeach
     </div>
 </div>
 @endsection

@@ -59,7 +59,7 @@ Route::get('/logout', [UserController::class, 'storeLogout']);
 Route::get('/', [ItemController::class, 'indexItem']);
 
 // view表示：item
-Route::get('/item', [ItemController::class, 'showItemDetail']);
+Route::get('/item/{id}', [ItemController::class, 'showItemDetail']);
 
 // view表示：purchase
 Route::get('/item/purchase', [PurchaseController::class, 'showPurchase']);

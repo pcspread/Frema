@@ -21,23 +21,27 @@
 
 .items {
     padding: 15px 52px;
-}
-
-.items-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .items-item {
-    padding: 52px;
-    list-style: none;
-}
-
-.item__image {
-    transform: scale(3);
+    position: relative;
+    margin: 15px;
+    width: 200px;
 }
 
 .item-link {
-    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
     padding: 32px;
+    z-index: 5;
+    text-align: center;
+    text-decoration: none;
+    line-height: 135px;
+    color: #0000FF;
 }
