@@ -15,7 +15,7 @@ class Item extends Model
         'brand_id',
         'category_id',
         'condition_id',
-        'category',
+        'gender',
         'image',
         'name',
         'content',
@@ -39,7 +39,7 @@ class Item extends Model
      */
     public function brand()
     {
-        return $this->hasOne(Brand::class);
+        return $this->belongsTo(Brand::class);
     }
 
     /**
@@ -47,9 +47,9 @@ class Item extends Model
      * @param void
      * @return 
      */
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -59,6 +59,16 @@ class Item extends Model
      */
     public function condition()
     {
-        return $this->hasOne(Condition::class);
+        return $this->belongsTo(Condition::class);
+    }
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return
+     */
+    public function purchase()
+    {
+        return $this->hasOne(Purchase::class);
     }
 }

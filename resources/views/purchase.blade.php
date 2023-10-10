@@ -21,7 +21,8 @@
         <div class="purchase-method">
             <form class="purchase-method__form" action="">
                 <select class="purchase-method__select" name="" id="">
-                    <option class="purchase-method__select-record" value="case1" selected>コンビニ払い</option>
+                    <option class="purchase-method__select-record" value="case1" selected>未選択</option>
+                    <option class="purchase-method__select-record" value="case1" >コンビニ払い</option>
                     <option class="purchase-method__select-record" value="case2">口座振替</option>
                     <option class="purchase-method__select-record" value="case3">現金払い</option>
                 </select>
@@ -54,7 +55,13 @@
                 </tr>
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title method">支払い方法</td>
-                    <td class="purchase-result__content">{{ $item }}</td>
+                    <td class="purchase-result__content">
+                    @if (empty($item->purchase['method']))
+                        支払い方法を選択してください
+                    @else
+                        {{ $item->purchase['method'] }}
+                    @endif
+                    </td>
                 </tr>
             </table>
 

@@ -18,7 +18,7 @@
         </div>
 
         <div class="item-brand">
-            <h3 class="item-brand__label">{{ $item->brand['brand'] }}</h3>
+            <h3 class="item-brand__label">{{ $item->brand['name'] }}</h3>
         </div>
 
         <div class="item-price">
@@ -60,15 +60,14 @@
             <div class="item-category">
                 <h3 class="item-category__title">カテゴリー</h3>
                 <ul class="item-category__list">
-                    @foreach ($item->categories as $category)
-                    <li class="item-category__record">{{ $category['category'] }}</li>
-                    @endforeach
+                    <li class="item-category__record">{{ $item->category['name'] }}</li>
+                    <li class="item-category__record">{{ $item['gender'] }}</li>
                 </ul>
             </div>
 
             <div class="item-condition">
                 <h3 class="item-condition__title">商品の状態</h3>
-                <p class="item-comdition__instance">{{ $item->condition['condition'] }}</p>
+                <p class="item-comdition__instance">{{ $item->condition['name'] }}</p>
             </div>
         </div>
     </div>
