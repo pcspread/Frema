@@ -71,4 +71,14 @@ class Item extends Model
     {
         return $this->hasOne(Purchase::class);
     }
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return
+     */
+    public function favorite()
+    {
+        return $this->hasOne(Favorite::class);
+    }
 }

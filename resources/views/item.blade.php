@@ -25,11 +25,17 @@
             <p class="item-price__instance">¥{{ $item['price'] }}(値段)</p>
         </div>
 
+        @if (Auth::check())
         <div class="item-impression">
             <div class="item-favorite">
-                <form class="item-favorite__form" action="
-                ">
+                <form class="item-favorite__form" action="/item/{{ $item['id'] }}
+                " method="POST">
+                @csrf
+                    @if (empty($item->favorite))
                     <button class="item-favorite__click">☆</button>
+                    @else
+                    <button class="item-favorite__click favorite">★</button>
+                    @endif
                 </form>
                 <p class="item-favotite__number">3</p>
             </div>
@@ -39,6 +45,7 @@
                 <p class="item-comment__number">3</p>
             </div>
         </div>
+        @endif
 
         <div class="purchase-button">
             <form class="purchase-button__form" action="/item/{{ $item['id'] }}/purchase" method="GET">
