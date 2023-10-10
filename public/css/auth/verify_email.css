@@ -6,7 +6,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -25,16 +25,19 @@
     margin-top: 15px;
 }
 
-.email-click {
+.email-button__click {
     display: block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #289ADC;
+    margin: 15px auto 0;
+    border: none;
+    background-color: #FFF;
+    color: #FF5555;
     font-size: 14px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
 }
 
-.email-click:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-underline-offset: 3px;
+.email-button__click:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }

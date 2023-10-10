@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/layouts/default.css') }}" />
     @yield('css')
+    <script src="{{ asset('js/default.js') }}" defer></script>
     @yield('js')
 </head>
 <body>
@@ -45,6 +46,18 @@
             </ul>
         </div>
     </header>
+
+    @if (session('success'))
+    <div class="message-box success">
+        <p class="message-box__text success">{{ session('success') }}</p>
+    </div>
+    @endif
+
+    @if (session('danger'))
+    <div class="message-box danger">
+        <p class="message-box__text danger">{{ session('danger') }}</p>
+    </div>
+    @endif
 
     <main class="main">
         @yield('content')

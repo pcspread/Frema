@@ -31,6 +31,8 @@
 
 .register-item__error {
     min-height: 32px;
+    text-align: left;
+    color: #FF0000;
 }
 
 .register-buttons {

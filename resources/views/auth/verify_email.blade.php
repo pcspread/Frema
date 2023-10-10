@@ -16,7 +16,12 @@
     </div>
     
     <div class="email-button">
-        <a class="email-click" href="/send/email">メールの再送はこちら</a>
+        <form class="email-button__form" action="/verify/email" method="POST">
+        @csrf
+            <input class="email-button__input" type="hidden" name="email" value="{{ session('email') }}">
+            <input class="email-button__input" type="hidden" name="token" value="{{ session('token') }}">
+            <button class="email-button__click">メールの再送はこちら</button>
+        </form>
     </div>
 </div>
 @endsection
