@@ -33,13 +33,13 @@
 
         <div class="purchase-carry">
             <h2 class="purchase-carry__title">
-                @if (empty($item->user['address']))
+                @if (empty(Auth::user()['address']))
                     配送先を選択してください
                 @else
-                    {{ $item->user['address'] }}
+                    {{ Auth::user()['address'] }}
                 @endif
             </h2>
-            <a class="purchase-carry__click" href="/item/address">変更する</a>
+            <a class="purchase-carry__click" href="/item/{{ $item['id'] }}/address">変更する</a>
         </div>
     </div>
 

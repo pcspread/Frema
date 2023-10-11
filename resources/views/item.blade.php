@@ -7,7 +7,7 @@
 @section('content')
 <div class="item-section">
     <div class="item-image">
-        <img class="item-image__instance" src="{{ $item['image'] }}" alt="商品画像">
+        <img class="item-image__instance" src="@if (!empty($item->image)) {{ asset('storage/' . $item->image) }} @else https://dummyimage.com/100x100/000/000 @endif" alt="商品画像">
     </div>
 
     <div class="item-content">

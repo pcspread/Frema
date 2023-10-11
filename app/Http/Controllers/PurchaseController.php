@@ -22,14 +22,19 @@ class PurchaseController extends Controller
         // 該当の商品データを取得
         $item = Item::find($id);
 
-        // 購入方法(purchases)に登録が無い場合の処理
-        if (empty(Purchase::where('user_id', Auth::id())->where('item_id', $id)->first()['method'])) {
-            // 購入方法の初期データを作成
-            Purchase::create([
-                'user_id' => Auth::id(),
-                'item_id' => $id,
-                'method' => 'コンビニ払い',
-            ]);
+        // ログインしている場合
+        if (Auth::check()) {
+            // 購入方法(purchases)に登録が無い場合の処理
+            if (empty(Purchase::where('user_id', Auth::id())->where('item_id', $id)->first()['method'])) {
+                // 購入方法の初期データを作成
+                Purchase::create([
+                    'user_id' => Auth::id(),
+                    'item_id' => $id,
+                    'method' => 'コンビニ払い',
+                ]);
+            }
+        } else {
+            return redirect("/item/{$id}")->with('danger', '購入の場合は会員登録が必要です');
         }
 
         return view('purchase', compact('item'));

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 // Request読込
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\AddressRequest;
 // Carbon読込
 use Carbon\Carbon;
 // Mail読込
@@ -143,7 +144,7 @@ class UserController extends Controller
         if (!empty(User::where('email', $form['email'])->first()['email_verified_at'])) {
             // ログイン情報がある場合
             if (Auth::attempt($form)) {
-                return redirect('/');
+                return redirect('/')->with('success', 'ログインしました');
             }
         }
 
@@ -164,12 +165,31 @@ class UserController extends Controller
     /**
      * view表示
      * address
-     * @param void
+     * @param int $id
      * @return view
      */
-    public function showAddress()
+    public function showAddress($id)
     {
-        return view('address');
+        // ユーザーデータを取得
+        $user = User::find(Auth::id());
+
+        return view('address', compact('user', 'id'));
+    }
+
+    /**
+     * 住所更新処理
+     * @param int $id
+     * @return redirect
+     */
+    public function updateAddress($id, AddressRequest $request)
+    {
+        // フォーム情報の取得
+        $form = $request->only('postcode', 'address', 'building');
+
+        // update処理
+        User::find(Auth::id())->update($form);
+
+        return back()->with('success', '住所を更新しました');
     }
     
     /**
@@ -186,6 +206,6 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return view('auth.logout');
+        return redirect('/')->with('success', 'ログアウトしました');
     }
 }
