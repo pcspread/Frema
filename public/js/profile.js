@@ -30,7 +30,7 @@ function fileView() {
 
             reader.readAsDataURL(file);
         } else {
-            image.src = 'https://dummyimage.com/100x100/000/0011ff';
+            image.src = 'https://dummyimage.com/100x100/000/000';
         }
     });
 }

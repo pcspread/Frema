@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->string('password', 191);
                 $table->string('name', 50)->nullable();
                 $table->string('image')->nullable();
-                $table->integer('postcode')->unsigned()->nullable();
+                $table->char('postcode', 8)->nullable();
                 $table->string('address', 191)->nullable();
                 $table->string('building', 191)->nullable();
                 $table->timestamp('email_verified_at')->nullable();

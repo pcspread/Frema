@@ -82,5 +82,8 @@ Route::get('/mypage', [ItemController::class, 'showMypage']);
 // view表示：profile
 Route::get('/mypage/edit', [ItemController::class, 'editProfile']);
 
+// update処理：profile
+Route::post('/mypage/edit', [ItemController::class, 'updateProfile']);
+
 // view表示：profile
 Route::get('/item/sell', [ItemController::class, 'editSell']);

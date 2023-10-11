@@ -15,6 +15,8 @@
 
 .firstView-information_image {
     border-radius: 90px;
+    width: 70px;
+    height: 70px;
 }
 
 .firstView-information__name {
@@ -51,26 +53,29 @@
 }
 
 .items {
-    padding: 15px 52px;
-}
-
-.items-list {
+    padding: 15px 152px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .items-item {
-    padding: 52px;
-    list-style: none;
+    position: relative;
+    margin: 15px;
+    width: 200px;
 }
 
-.item__image {
-    transform: scale(3);
+.item-price {
+    position: absolute;
+    top: 165px;
+    left: 0;
+    padding: 5px;
+    z-index: 5;
 }
 
 .item-link {
-    display: block;
-    padding: 32px;
+    text-decoration: none;
+    color: #0000FF;
 }
 
 @media screen and (max-width: 960px) {
@@ -94,5 +99,9 @@
 
     .firstView-click__instance {
         margin: 0;
+    }
+
+    .items {
+        padding: 15px 52px;
     }
 }
