@@ -67,6 +67,9 @@ Route::post('/item/{id}', [ItemController::class, 'operateFavorite']);
 // view表示：purchase
 Route::get('/item/{id}/purchase', [PurchaseController::class, 'showPurchase']);
 
+// 購入方法変更処理
+Route::patch('/item/{id}/purchase', [PurchaseController::class, 'updatePurchase']);
+
 // view表示：address
 Route::get('/item/address', [UserController::class, 'showAddress']);
 
