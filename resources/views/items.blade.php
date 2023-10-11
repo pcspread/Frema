@@ -14,6 +14,7 @@
         <p class="select-item recommend">おすすめ</p>
         <p class="select-item mine">マイリスト</p>
     </div>
+    
     <div class="items">
         @foreach ($items as $item)
         <div class="items-item">

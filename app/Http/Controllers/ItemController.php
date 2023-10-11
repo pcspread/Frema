@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 // Model読込
 use App\Models\Item;
 use App\Models\Favorite;
+use App\Models\User;
 // Auth読込
 use Illuminate\Support\Facades\Auth;
+// Request読込
+use App\Http\Requests\ProfileRequest;
 
 class ItemController extends Controller
 {
@@ -67,7 +70,13 @@ class ItemController extends Controller
      */
     public function showMypage()
     {
-        return view('mypage');
+        // ユーザーデータを取得
+        $user = User::find(Auth::id());
+
+        // 標品データを全件取得
+        $items = Item::all();
+
+        return view('mypage', compact('user', 'items'));
     }
 
     /**
@@ -78,8 +87,39 @@ class ItemController extends Controller
      */
     public function editProfile()
     {
-        return view('profile');
+        // ユーザーデータの取得
+        $user = User::find(Auth::id());
+
+        return view('profile', compact('user'));
     }
+
+    /**
+     * update処理
+     * profile
+     * @param object $request
+     * @return redirect
+     */
+    public function updateProfile(ProfileRequest $request)
+    {
+        // 画像以外のフォーム情報の取得
+        $form = $request->only('name', 'postcode', 'address', 'building');
+        
+        // 画像を取得
+        $image = $request->file('image');
+
+        // 画像以外をupdate処理
+        User::find(Auth::id())->update($form);
+
+        // 画像が選択されている場合
+        if (!empty($image)) {
+            $path = $image->store('images', 'public');
+            // 画像をupdate処理
+            Auth::user()->update(['image' => $path]);
+        } 
+
+        return redirect('/mypage/edit')->with('success', '更新が完了しました');
+    }
+
 
     /**
      * view表示
