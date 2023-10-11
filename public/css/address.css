@@ -31,6 +31,8 @@
 
 .address-item__error {
     min-height: 32px;
+    color: #FF5555;
+    text-align: left;
 }
 
 .address-buttons {

@@ -71,7 +71,10 @@ Route::get('/item/{id}/purchase', [PurchaseController::class, 'showPurchase']);
 Route::patch('/item/{id}/purchase', [PurchaseController::class, 'updatePurchase']);
 
 // view表示：address
-Route::get('/item/address', [UserController::class, 'showAddress']);
+Route::get('/item/{id}/address', [UserController::class, 'showAddress']);
+
+// 住所更新処理
+Route::post('/item/{id}/address', [UserController::class, 'updateAddress']);
 
 // view表示：thanks_purchase
 Route::get('/item/purchase/email', [PurchaseController::class, 'showPurchaseMail']);
