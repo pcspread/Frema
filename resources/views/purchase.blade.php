@@ -19,12 +19,13 @@
         </div>
 
         <div class="purchase-method">
-            <form class="purchase-method__form" action="">
-                <select class="purchase-method__select" name="" id="">
-                    <option class="purchase-method__select-record" value="case1" selected>未選択</option>
-                    <option class="purchase-method__select-record" value="case1" >コンビニ払い</option>
-                    <option class="purchase-method__select-record" value="case2">口座振替</option>
-                    <option class="purchase-method__select-record" value="case3">現金払い</option>
+            <form class="purchase-method__form" action="/item/{{ $item['id'] }}/purchase" method="POST">
+            @method('PATCH')
+            @csrf
+                <select class="purchase-method__select" name="method">
+                    <option class="purchase-method__select-record" value="case1" @if (!empty($item->purchase['method']) && $item->purchase['method'] === 'コンビニ払い') selected @endif>コンビニ払い</option>
+                    <option class="purchase-method__select-record" value="case2" @if (!empty($item->purchase['method']) && $item->purchase['method'] === '口座振替') selected @endif>口座振替</option>
+                    <option class="purchase-method__select-record" value="case3" @if (!empty($item->purchase['method']) && $item->purchase['method'] === '現金払い') selected @endif>現金払い</option>
                 </select>
                 <button class="purchase-method__button">変更する</button>
             </form>
