@@ -11,6 +11,6 @@ class Condition extends Model
 
     // 編集可能なカラムの設定
     protected $fillable = [
-        'condition',
+        'name',
     ];
 }

@@ -8,7 +8,7 @@
 <div class="purchase-section">
     <div class="purchase-content">
         <div class="purchase-image">
-            <img class="purchase-image__instance" src="{{ $item['image'] }}" alt="商品画像">
+            <img class="purchase-image__instance" src="@if (!empty($item->image)) {{ asset('storage/' . $item->image) }} @else https://dummyimage.com/100x100/CCC/CCC @endif" alt="商品画像">
     
             <div class="purchase-image__sub">
                 <div class="purchase-name">

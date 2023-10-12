@@ -9,8 +9,11 @@ class Brand extends Model
 {
     use HasFactory;
 
+    // timestampsを無効にする
+    public $timestamps = false;
+
     // 編集可能なカラムの設定
     protected $fillable = [
-        'brand',
+        'name',
     ];
 }

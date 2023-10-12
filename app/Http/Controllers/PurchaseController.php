@@ -48,6 +48,7 @@ class PurchaseController extends Controller
     /**
      * 購入処理
      * @param int $id
+     * @return back
      * @return redirect
      */
     public function updatePurchaseBuy($id, Request $request)
@@ -81,7 +82,7 @@ class PurchaseController extends Controller
     /**
      * 購入方法変更処理
      * @param int $id
-     * @return redirect
+     * @return back
      */
     public function updatePurchase($id, Request $request)
     {

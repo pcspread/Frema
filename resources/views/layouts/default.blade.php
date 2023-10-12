@@ -44,7 +44,7 @@
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link sell" href="/item/sell">出品</a>
+                    <a class="nav-link sell" href="/sell">出品</a>
                 </li>
             </ul>
         </div>

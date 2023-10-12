@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Favorite;
 use App\Models\User;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Condition;
 // Auth読込
 use Illuminate\Support\Facades\Auth;
 // Request読込
 use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\ItemRequest;
+// Carbon読込
+use Carbon\Carbon;
 
 class ItemController extends Controller
 {
@@ -43,7 +49,7 @@ class ItemController extends Controller
     /**
      * お気に入り登録
      * @param int $id
-     * @return view
+     * @return redirect
      */
     public function operateFavorite($id)
     {
@@ -117,9 +123,8 @@ class ItemController extends Controller
             Auth::user()->update(['image' => $path]);
         } 
 
-        return redirect('/mypage/edit')->with('success', '更新が完了しました');
+        return redirect('/mypage/profile')->with('success', '更新が完了しました');
     }
-
 
     /**
      * view表示
@@ -129,6 +134,66 @@ class ItemController extends Controller
      */
     public function editSell()
     {
-        return view('sell');
+        // ログインしていない場合
+        if (!Auth::check()) {
+            return back()->with('danger', '出品される場合はログインが必要です');
+        }
+
+        // ブランド情報を取得
+        $brands = Brand::all();
+
+        // カテゴリー情報の取得
+        $categories = Category::all();
+
+        // コンディション情報の取得
+        $conditions = Condition::all();
+        
+        return view('sell', compact('brands', 'categories', 'conditions'));
+    }
+
+    /**
+     * 出品処理
+     * @param object $request
+     * @return back
+     */
+    public function updateSell(ItemRequest $request)
+    {
+        // 画像以外のフォーム情報の取得
+        $form = $request->only('brand', 'new_brand', 'category', 'condition', 'gender', 'name', 'content', 'price');
+        
+        
+        // 新しいブランドが入力されている場合
+        if (!empty($form['new_brand'])) {
+            // ブランド追加処理
+            Brand::create([
+                'name' => $form['new_brand'],
+            ]);
+            $brand_result = $form['new_brand'];
+        } else {
+            $brand_result = $form['brand'];
+        }
+        
+        // 画像を取得
+        $image = $request->file('image');
+        
+        // 画像のパスを格納
+        $path = $image->store('images', 'public');
+        
+        // create処理
+        Item::create([
+            'user_id' => Auth::id(),
+            'brand_id' => Brand::where('name', $brand_result)->first()['id'],
+            'category_id' => Category::where('name', $form['category'])->first()['id'],
+            'condition_id' => Condition::where('name', $form['condition'])->first()['id'],
+            'gender' => $form['gender'],
+            'image' => $path,
+            'name' => $form['name'],
+            'content' => $form['content'],
+            'price' => $form['price'],
+            'created_at' => Carbon::now()->__toString(),
+            'updated_at'=> Carbon::now()->__toString(),
+        ]);
+
+        return back()->with('success', '商品を出品しました');
     }
 }
