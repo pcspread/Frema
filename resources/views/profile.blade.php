@@ -12,18 +12,18 @@
 <div class="profile-section">
     <h1 class="profile-title">プロフィール設定</h1>
 
-    <form class="profile-form" action="/mypage/edit" method="POST" enctype="multipart/form-data">
+    <form class="profile-form" action="/mypage/profile" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="profile-image">
-        <img class="profile-image__instance" src="@if ($user->image) {{ asset('storage/' . $user->image) }} @else https://dummyimage.com/100x100/000/000 @endif" alt="">
-        <input class="profile-image__click" type="file" name="image">
-        <button class="profile-image__click-button" type="button">画像を選択する</button>
-    </div>
-    @error('image')
-    <p class="profile-item__error">
-        {{ $errors->first('image') }}
-    </p>
-    @enderror
+        <div class="profile-image">
+            <img class="profile-image__instance" src="@if ($user->image) {{ asset('storage/' . $user->image) }} @else https://dummyimage.com/100x100/000/000 @endif" alt="商品画像">
+            <input class="profile-image__click" type="file" name="image">
+            <button class="profile-image__click-button" type="button">画像を選択する</button>
+        </div>
+        @error('image')
+        <p class="profile-item__error">
+            {{ $errors->first('image') }}
+        </p>
+        @enderror
 
         <div class="profile-item">
             <label class="profile-item__title" for="name">ユーザー名</label>

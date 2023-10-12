@@ -96,6 +96,7 @@ class UserController extends Controller
      * auth.thanks
      * @param object $request
      * @return view
+     * @return redirect
      */
     public function indexThanks(Request $request)
     {
@@ -133,7 +134,7 @@ class UserController extends Controller
     /**
      * login処理
      * @param object $request
-     * @return view
+     * @return redirect
      */
     public function storeLogin(LoginRequest $request)
     {
@@ -179,7 +180,7 @@ class UserController extends Controller
     /**
      * 住所更新処理
      * @param int $id
-     * @return redirect
+     * @return back
      */
     public function updateAddress($id, AddressRequest $request)
     {
@@ -196,7 +197,7 @@ class UserController extends Controller
      * view表示
      * auth.logout
      * @param object $request
-     * @return view
+     * @return redirect
      */
     public function storeLogout(Request $request)
     {

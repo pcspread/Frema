@@ -11,6 +11,6 @@ class Category extends Model
 
     // 編集可能なカラムの設定
     protected $fillable = [
-        'category',
+        'name',
     ];
 }

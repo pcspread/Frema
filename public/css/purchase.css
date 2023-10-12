@@ -20,7 +20,8 @@
 
 .purchase-image__instance {
     width: 65px;
-    margin: 0 32px;
+    margin: 0 32px 0 0;
+    width: 200px;
 }
 
 .purchase-image__sub {
@@ -44,6 +45,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 35px 0 145px;
+}
+
+.purchase-method__select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #888;
 }
 
 .purchase-method__form {

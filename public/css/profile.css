@@ -39,6 +39,10 @@
     text-decoration: none;
 }
 
+.profile-image__click-button:hover {
+    cursor: pointer;
+}
+
 .profile-item__title {
     display: block;
     text-align: left;

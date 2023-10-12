@@ -12,7 +12,7 @@
             <h1 class="firstView-information__name">ユーザー名</h1>
         </div>
         <div class="firstView-click">
-            <a class="firstView-click__instance" href="/mypage/edit">プロフィールを編集</a>
+            <a class="firstView-click__instance" href="/mypage/profile">プロフィールを編集</a>
         </div>
     </div>
 
@@ -24,8 +24,8 @@
     <div class="items">
         @foreach ($items as $item)
         <div class="items-item">
-            <img class="item__image" src="{{ $item['image'] }}" alt="商品画像">
-            <p class="item-price">¥{{ $item['price'] }}</p>
+            <img class="item__image" src="@if (!empty($item->image)) {{ asset('storage/' . $item->image) }} @else https://dummyimage.com/100x100/CCC/CCC @endif" alt="商品画像">
+            <p class="item-price">¥{{ number_format($item['price']) }}</p>
             <a class="item-link" href="/item/{{ $item['id'] }}">
                 【{{ $item->brand['name'] }}】{{ $item->category['name'] }} {{ $item['gender'] }} 「{{ $item['name'] }}」
             </a>

@@ -17,13 +17,11 @@
     text-align: left;
 }
 
-.sell-image__select {
-    display: inline-block;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #888;
-    margin-bottom: 32px;
-    padding: 45px 0;
+.sell-image__instance {
+    display: block;
+    text-align: left;
+    width: 200px;
+    margin-bottom: 15px;
 }
 
 .sell-image__click {
@@ -31,12 +29,19 @@
 }
 
 .sell-image__click-button {
+    display: block;
     padding: 5px 24px;
     border-radius: 5px;
     border: 2px solid #FF5555;
     background-color: #FFF;
     color: #FF5555;
     text-decoration: none;
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.sell-image__click-button:hover {
+    cursor: pointer;
 }
 
 .sell__sub-title {
@@ -59,6 +64,12 @@
     text-align: left;
 }
 
+.sell-item__select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #888;
+}
+
 .sell-item__input {
     display: block;
     width: 100%;
@@ -68,8 +79,26 @@
     border: 2px solid #888;
 }
 
+.sell-item__price-group {
+    position: relative;
+}
+
+.sell-item__price-mark {
+    position: absolute;
+    top: -2px;
+    left: 8px;
+    font-size: 24px;
+    color: #888;
+}
+
+.sell-item__input.price {
+    padding-left: 25px;
+}
+
 .sell-item__error {
     min-height: 32px;
+    color: #FF5555;
+    text-align: left;
 }
 
 .sell-buttons {
