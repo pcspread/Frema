@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 // Model読込
 use App\Models\Item;
 use App\Models\Purchase;
+use App\Models\User;
 // Auth読込
 use Illuminate\Support\Facades\Auth;
+// Mail読込
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PurchaseMail;
 
 class PurchaseController extends Controller
 {
@@ -31,6 +35,7 @@ class PurchaseController extends Controller
                     'user_id' => Auth::id(),
                     'item_id' => $id,
                     'method' => 'コンビニ払い',
+                    'total' => 0,
                 ]);
             }
         } else {
@@ -38,6 +43,39 @@ class PurchaseController extends Controller
         }
 
         return view('purchase', compact('item'));
+    }
+
+    /**
+     * 購入処理
+     * @param int $id
+     * @return redirect
+     */
+    public function updatePurchaseBuy($id, Request $request)
+    {
+        // ユーザーデータの取得
+        $user = User::find(Auth::id());
+
+        // 配送先を選択していない場合
+        if (empty($user['postcode']) || empty($user['address'])) {
+            return back()->with('danger', '配送先を指定してください');
+        }
+
+        // 金額情報の取得
+        $total = Item::find($id)['price'];
+
+        // update処理
+        $purchase = Purchase::where('item_id', $id)->first();
+        $purchase->update([
+            'total' => $total,
+        ]);
+
+        // 購入詳細メール送信処理
+        Mail::send(new PurchaseMail($user['name'], $user['email'], $user['postcode'], $user['address'], $user['building'], $purchase['method'], $total));
+
+        // 二重送信防止処理
+        $request->session()->regenerateToken();
+        
+        return redirect("/item/{$id}/purchase/email");
     }
 
     /**
@@ -78,10 +116,10 @@ class PurchaseController extends Controller
     /**
      * view表示
      * thanks_purchase
-     * @param void
+     * @param int $id
      * @return view
      */
-    public function showPurchaseMail()
+    public function showPurchaseMail($id)
     {
         return view('thanks_purchase');
     }

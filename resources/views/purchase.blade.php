@@ -14,7 +14,7 @@
                 <div class="purchase-name">
                     <h1 class="purchase-name__label">{{ $item['name'] }}</h1>
                 </div>
-                <h3 class="purchase-price">¥{{ $item['price'] }}</h3>
+                <h3 class="purchase-price">¥{{ number_format($item['price']) }}</h3>
             </div>
         </div>
 
@@ -36,7 +36,9 @@
                 @if (empty(Auth::user()['address']))
                     配送先を選択してください
                 @else
-                    {{ Auth::user()['address'] }}
+                    〒 {{ Auth::user()['postcode'] }}<br />
+                    {{ Auth::user()['address'] }}<br />
+                    {{ Auth::user()['building'] }}
                 @endif
             </h2>
             <a class="purchase-carry__click" href="/item/{{ $item['id'] }}/address">変更する</a>
@@ -44,15 +46,16 @@
     </div>
 
     <div class="purchase-result">
-        <form class="purchase-result__form" action="/item/purchase/email" method="GET">
+        <form class="purchase-result__form" action="/item/{{ $item['id'] }}/purchase" method="POST">
+        @csrf
             <table class="purchase-result__table">
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title price">商品代金</td>
-                    <td class="purchase-result__content">¥{{ $item['price'] }}</td>
+                    <td class="purchase-result__content">¥{{ number_format($item['price']) }}</td>
                 </tr>
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title pay">支払い金額</td>
-                    <td class="purchase-result__content">¥{{ $item['price'] }}</td>
+                    <td class="purchase-result__content">¥{{ number_format($item['price']) }}</td>
                 </tr>
                 <tr class="purchase-result__row">
                     <td class="purchase-result__title method">支払い方法</td>

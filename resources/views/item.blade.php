@@ -22,7 +22,7 @@
         </div>
 
         <div class="item-price">
-            <p class="item-price__instance">¥{{ $item['price'] }}(値段)</p>
+            <p class="item-price__instance">¥{{ number_format($item['price']) }}(値段)</p>
         </div>
 
         @if (Auth::check())

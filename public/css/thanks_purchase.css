@@ -6,7 +6,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -19,22 +19,4 @@
 .email-item__text {
     min-height: 32px;
     text-align: left;
-}
-
-.email-button {
-    margin-top: 15px;
-}
-
-.email-click {
-    display: block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #289ADC;
-    font-size: 14px;
-}
-
-.email-click:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-underline-offset: 3px;
 }
