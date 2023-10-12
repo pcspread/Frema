@@ -20,15 +20,17 @@
     background-color: #FFF;
 }
 
-.email-click {
-    display: block;
-    border-radius: 3px;
-    background-color: #289ADC;
-    width: 180px;
-    height: 32px;
-    line-height: 32px;
-    margin: 24px auto 0;
-    text-align: center;
-    color: #FFF;
-    text-decoration: none;
+.email__purchase-content {
+    border: 3px double #888;
+    background-color: #EEE;
+    margin-top: 5px;
+    padding: 15px;
+}
+
+.email__purchase-content__text-group {
+    margin-bottom: 15px;
+}
+
+.email__purchase-content__text-group:last-child {
+    margin-bottom: 0;
 }

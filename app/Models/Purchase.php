@@ -14,5 +14,6 @@ class Purchase extends Model
         'user_id',
         'item_id',
         'method',
+        'total',
     ];
 }
