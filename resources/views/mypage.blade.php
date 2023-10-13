@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/mypage.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="items-section">
     <div class="firstView">
@@ -17,8 +21,8 @@
     </div>
 
     <div class="select">
-        <p class="select-item recommend">出品した商品</p>
-        <p class="select-item mine">購入した商品</p>
+        <a class="select-item recommend" href="/mypage">出品した商品</a>
+        <a class="select-item purchase" href="/mypage/purchase">購入した商品</a>
     </div>
     
     <div class="items">

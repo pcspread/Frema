@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 // Mail読込
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PurchaseMail;
+// DB読込
+use Illuminate\Support\Facades\DB;
+// Log読込
+use Illuminate\Support\Facades\Log;
 
 class PurchaseController extends Controller
 {
@@ -26,19 +30,8 @@ class PurchaseController extends Controller
         // 該当の商品データを取得
         $item = Item::find($id);
 
-        // ログインしている場合
-        if (Auth::check()) {
-            // 購入方法(purchases)に登録が無い場合の処理
-            if (empty(Purchase::where('user_id', Auth::id())->where('item_id', $id)->first()['method'])) {
-                // 購入方法の初期データを作成
-                Purchase::create([
-                    'user_id' => Auth::id(),
-                    'item_id' => $id,
-                    'method' => 'コンビニ払い',
-                    'total' => 0,
-                ]);
-            }
-        } else {
+        // ログインしていない場合
+        if (!Auth::check()) {
             return redirect("/item/{$id}")->with('danger', '購入の場合は会員登録が必要です');
         }
 
@@ -62,16 +55,31 @@ class PurchaseController extends Controller
         }
 
         // 金額情報の取得
-        $total = Item::find($id)['price'];
+        $item = Item::find($id);
 
-        // update処理
-        $purchase = Purchase::where('item_id', $id)->first();
-        $purchase->update([
-            'total' => $total,
-        ]);
+        // トランザクション開始
+        DB::beginTransaction();
 
+        try {
+            // update処理(Item)
+            Item::find($id)->update([
+                'buyer' => Auth::id(),
+            ]);
+            // delete処理(Item)
+            Item::find($id)->delete();
+            DB::commit();
+        } catch (\PDOException $e) {
+            DB::rollback();
+            // エラー内容を保存
+            Log::error('データベース接続失敗', [
+                'content' => $e->getMessage(),
+                'location' => $e->getFile(),
+                'row' => $e->getLine()
+            ]);
+        }
+        
         // 購入詳細メール送信処理
-        Mail::send(new PurchaseMail($user['name'], $user['email'], $user['postcode'], $user['address'], $user['building'], $purchase['method'], $total));
+        Mail::send(new PurchaseMail($user['name'], $user['email'], $user['postcode'], $user['address'], $user['building'], $item['method'], $item['price']));
 
         // 二重送信防止処理
         $request->session()->regenerateToken();
@@ -106,12 +114,11 @@ class PurchaseController extends Controller
         }
 
         // update処理
-        Purchase::where('user_id', Auth::id())->where('item_id', $id)->first()->update([
+        Item::find($id)->update([
             'method' => $purchase,
         ]);
 
         return back()->with('success', '購入方法を変更しました');
-
     }
 
     /**

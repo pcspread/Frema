@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 // DB読込
 use Illuminate\Support\Facades\DB;
+// Carbon読込
+use Carbon\Carbon;
 
 class ItemSeeder extends Seeder
 {
@@ -25,7 +27,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'パーカー',
                     'content' => '温かく、着心地の良いパーカーです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -36,7 +40,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'スウェット',
                     'content' => '温かいスウェットです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -47,7 +53,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'カーディガン',
                     'content' => 'さっと羽織れるカーディガンです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -58,7 +66,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'ジャケット',
                     'content' => '頑丈な作りのジャケットです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -69,7 +79,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'トレンチコート',
                     'content' => '色んな服装に合うコートです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -80,7 +92,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'ニット',
                     'content' => 'とても温かいニットです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -91,7 +105,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'シャツ',
                     'content' => 'きれいめのシャツです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ],
                 [
                     'user_id' => $i,
@@ -102,7 +118,9 @@ class ItemSeeder extends Seeder
                     'image' =>'',
                     'name' => 'カットソー',
                     'content' => '品質の良いカットソーです',
-                    'price' => $i * 1000
+                    'price' => $i * 1000,
+                    'created_at' => Carbon::now()->__toString(),
+                    'updated_at' => Carbon::now()->__toString(),
                 ]
             ]);
         }
