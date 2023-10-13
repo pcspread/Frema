@@ -11,8 +11,8 @@
 @section('content')
 <div class="items-section">
     <div class="select">
-        <p class="select-item recommend">おすすめ</p>
-        <p class="select-item mine">マイリスト</p>
+        <a class="select-item recommend" href="/">おすすめ</a>
+        <a class="select-item favorite" href="/favorite">マイリスト</a>
     </div>
     
     <div class="items">
