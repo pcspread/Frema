@@ -25,7 +25,7 @@
 }
 
 .firstView-click__instance {
-    margin: 0 150px;
+    margin: 0 100px;
     padding: 3px 15px;
     border-radius: 5px;
     border: 2px solid #FF5555;
@@ -108,5 +108,30 @@
 
     .items {
         padding: 15px 52px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .firstView {
+        padding: 10px;
+    }
+
+    .firstView-information {
+        display: block;
+    }
+
+    .firstView-information__name {
+
+        padding: 5px 0;
+        font-size: 20px;
+    }
+
+    .select {
+        padding: 0 10px 5px;
+    }
+
+    .items {
+        padding: 15px 0;
+        justify-content: space-around;
     }
 }

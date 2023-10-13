@@ -83,7 +83,10 @@ Route::post('/item/{id}/address', [UserController::class, 'updateAddress']);
 Route::get('/item/{id}/purchase/email', [PurchaseController::class, 'showPurchaseMail']);
 
 // view表示：comment
-Route::get('/item/comment', [CommentController::class, 'showComment']);
+Route::get('/item/{id}/comment', [CommentController::class, 'showComment']);
+
+// コメント送信処理
+Route::post('/item/{id}/comment', [CommentController::class, 'updateComment']);
 
 // view表示：mypage
 Route::get('/mypage', [ItemController::class, 'showMypage']);
