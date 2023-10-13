@@ -49,3 +49,13 @@
     text-decoration: none;
     color: #0000FF;
 }
+
+@media screen and (max-width: 480px) {
+    .select {
+        padding: 32px 0 5px;
+    }
+
+    .items {
+        padding: 15px 0;
+    }
+}

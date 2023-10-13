@@ -12,6 +12,8 @@ class Comment extends Model
     // 編集可能なカラムの設定
     protected $fillable = [
         'user_id',
+        'item_id',
+        'name',
         'content',
     ];
 }

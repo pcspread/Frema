@@ -8,8 +8,8 @@
 <div class="items-section">
     <div class="firstView">
         <div class="firstView-information">
-        <img class="firstView-information_image" src="@if ($user->image) {{ asset('storage/' . $user->image) }} @else https://dummyimage.com/100x100/000/000 @endif" alt="">
-            <h1 class="firstView-information__name">ユーザー名</h1>
+            <img class="firstView-information_image" src="@if ($user->image) {{ asset('storage/' . $user->image) }} @else https://dummyimage.com/100x100/000/000 @endif" alt="">
+            <h1 class="firstView-information__name">{{ (empty($user['name'])) ? 'ユーザー名が設定されていません' : $user['name'] }}</h1>
         </div>
         <div class="firstView-click">
             <a class="firstView-click__instance" href="/mypage/profile">プロフィールを編集</a>

@@ -37,12 +37,12 @@
                     <button class="item-favorite__click favorite">★</button>
                     @endif
                 </form>
-                <p class="item-favotite__number">3</p>
+                <p class="item-favotite__number">{{ $favorite }}</p>
             </div>
     
             <div class="item-comment">
-                <a class="item-comment__click" href="/item/comment">💭</a>
-                <p class="item-comment__number">3</p>
+                <a class="item-comment__click" href="/item/{{ $item['id'] }}/comment">💭</a>
+                <p class="item-comment__number">{{ $comment }}</p>
             </div>
         </div>
         @endif

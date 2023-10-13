@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // Model読込
 use App\Models\Item;
+use App\Models\Comment;
 use App\Models\Favorite;
 use App\Models\User;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Condition;
+
 // Auth読込
 use Illuminate\Support\Facades\Auth;
 // Request読込
@@ -41,9 +43,16 @@ class ItemController extends Controller
      */
     public function showItemDetail($id)
     {
+        // アイテム情報の取得
         $item = Item::find($id);
 
-        return view('item', compact('item'));
+        // お気に入り数の取得
+        $favorite = count(Favorite::where('item_id', $id)->get());
+
+        // コメント数の取得
+        $comment = count(Comment::where('item_id', $id)->get());
+
+        return view('item', compact('item', 'favorite', 'comment'));
     }
 
     /**
