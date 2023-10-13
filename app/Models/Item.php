@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+// SoftDeletes読込
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Item extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     // 編集可能なカラムの設定
     protected $fillable = [
@@ -20,6 +23,8 @@ class Item extends Model
         'name',
         'content',
         'price',
+        'method',
+        'buyer',
     ];
 
     /**
@@ -60,16 +65,6 @@ class Item extends Model
     public function condition()
     {
         return $this->belongsTo(Condition::class);
-    }
-
-    /**
-     * リレーション設定
-     * @param void
-     * @return
-     */
-    public function purchase()
-    {
-        return $this->hasOne(Purchase::class);
     }
 
     /**

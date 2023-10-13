@@ -91,6 +91,9 @@ Route::post('/item/{id}/comment', [CommentController::class, 'updateComment']);
 // view表示：mypage
 Route::get('/mypage', [ItemController::class, 'showMypage']);
 
+// マイページの抽出処理(購入した商品)
+Route::get('/mypage/purchase', [ItemController::class, 'searchMypagePurchase']);
+
 // view表示：profile
 Route::get('/mypage/profile', [ItemController::class, 'editProfile']);
 

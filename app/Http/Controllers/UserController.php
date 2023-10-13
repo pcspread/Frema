@@ -180,7 +180,7 @@ class UserController extends Controller
     /**
      * 住所更新処理
      * @param int $id
-     * @return back
+     * @return redirect
      */
     public function updateAddress($id, AddressRequest $request)
     {
@@ -190,9 +190,9 @@ class UserController extends Controller
         // update処理
         User::find(Auth::id())->update($form);
 
-        return back()->with('success', '住所を更新しました');
+        return redirect("/item/{$id}/purchase")->with('success', '住所を更新しました');
     }
-    
+
     /**
      * view表示
      * auth.logout

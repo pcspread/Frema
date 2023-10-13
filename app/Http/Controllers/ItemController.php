@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\Comment;
 use App\Models\Favorite;
 use App\Models\User;
+use App\Models\Purchase;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Condition;
@@ -74,7 +75,6 @@ class ItemController extends Controller
             Favorite::where('item_id', $id)->first()->delete();
             return redirect("/item/{$id}")->with('success', 'お気に入りを解除しました');
         }
-
     }
 
     /**
@@ -88,8 +88,24 @@ class ItemController extends Controller
         // ユーザーデータを取得
         $user = User::find(Auth::id());
 
-        // 標品データを全件取得
-        $items = Item::all();
+        // 出品した商品データを全件取得
+        $items = Item::where('user_id', Auth::id())->get();
+
+        return view('mypage', compact('user', 'items'));
+    }
+
+    /**
+     * マイページの抽出処理(購入した商品)
+     * @param void
+     * @return view
+     */
+    public function searchMypagePurchase()
+    {
+        // ユーザーデータを取得
+        $user = User::find(Auth::id());
+
+        // 購入した商品データを全件取得
+        $items = Item::onlyTrashed()->where('buyer', Auth::id())->get();
 
         return view('mypage', compact('user', 'items'));
     }
@@ -132,7 +148,7 @@ class ItemController extends Controller
             Auth::user()->update(['image' => $path]);
         } 
 
-        return redirect('/mypage/profile')->with('success', '更新が完了しました');
+        return redirect('/mypage')->with('success', '変更が完了しました');
     }
 
     /**
