@@ -38,6 +38,31 @@ class ItemController extends Controller
 
     /**
      * view表示
+     * items
+     * @param void
+     * @return view
+     */
+     public function indexItemFavorite()
+     {
+        // お気に入り商品を選定
+        $favorites = Favorite::select('item_id')->get();
+
+        // 商品データ格納用の変数を定義
+        $records = [];
+
+        foreach ($favorites as $favorite) {
+            if (Item::find($favorite->item_id)) {
+                $records[] = Item::find($favorite->item_id);
+            }
+        }
+
+        $items = collect($records);
+
+        return view('items', compact('items'));
+     }
+
+    /**
+     * view表示
      * item
      * @param int $id
      * @return view

@@ -14,3 +14,18 @@ function searchItems() {
     });
 }
 searchItems();
+
+/**
+ * ボタンを変色させる
+ */
+function changeColor() {
+    const recommend = document.querySelector('.select-item.recommend');
+    const favorite = document.querySelector('.select-item.favorite');
+
+    if (location.pathname === '/') {
+        recommend.style.color = '#FF3333';
+    } else if (location.pathname === '/favorite') {
+        favorite.style.color = '#FF3333';
+    }
+}
+changeColor();

@@ -58,6 +58,9 @@ Route::get('/logout', [UserController::class, 'storeLogout']);
 // view表示：items
 Route::get('/', [ItemController::class, 'indexItem']);
 
+// 商品一覧ページの抽出処理(マイリスト)
+Route::get('/favorite', [ItemController::class, 'indexItemFavorite']);
+
 // view表示：item
 Route::get('/item/{id}', [ItemController::class, 'showItemDetail']);
 

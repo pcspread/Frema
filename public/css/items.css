@@ -12,6 +12,7 @@
     padding: 0 32px;
     color: #777;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .select-item:hover {

@@ -23,7 +23,7 @@
         </div>
 
         <div class="header-search">
-            <input class="header-search__input" type="text" placeholder="なにをお探しですか？" value="{{ Auth::id() }}">
+            <input class="header-search__input" type="text" placeholder="なにをお探しですか？">
         </div>
         
         <div class="header-nav">
