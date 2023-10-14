@@ -51,4 +51,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return array
+     */
+    public function invite()
+    {
+        return $this->hasOne(Invite::class);
+    }
 }
