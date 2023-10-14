@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\TopController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,3 +110,15 @@ Route::get('/sell', [ItemController::class, 'editSell']);
 
 // 出品処理
 Route::post('/sell', [ItemController::class, 'updateSell']);
+
+// ================================================
+// admin
+// ================================================
+// view表示：admin.top_user
+Route::get('/admin/top', [TopController::class, 'indexTopUser']);
+
+// view表示：admin.top_invite
+Route::get('/admin/top/invite', [TopController::class, 'indexTopInvite']);
+
+// view表示：admin.mail
+Route::get('/admin/mail', [MailController::class, 'indexOwnerMail']);

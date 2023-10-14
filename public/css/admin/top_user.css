@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+.user-section {
+    min-height: 87vh;
+    padding: 15px;
+    background-color: #CCFFCC;
+}
+
+.user-table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.user-record {
+    border-top: 1px solid #888;
+}
+
+.user-record:last-of-type {
+    border-bottom: 1px solid #888;
+}
+
+.user-title {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.user-title:nth-of-type(1) {
+    width: 5%;
+}
+
+.user-title:nth-of-type(2) {
+    width: 15%;
+}
+
+.user-title:nth-of-type(3) {
+    width: 20%;
+}
+
+.user-title:nth-of-type(4) {
+    width: 60%;
+}
+
+.user-content {
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.user-content__buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.user-content__button {
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+    border: none;
+    box-shadow: 0 0 1px 1px #888;
+    border-radius: 3px;
+    color: #FFF;
+}
+
+.user-content__button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.user-content__button.invite {
+    background-color: #60CCAA;
+}
+
+.user-content__button.delete {
+    background-color: #FF5555;
+}
+
+@media screen and (max-width: 480px) {
+
+    .user-title:nth-of-type(1) {
+        width: 10%;
+    }
+
+    .user-title:nth-of-type(2),
+    .user-title:nth-of-type(3) {
+        width: 25%;
+    }
+
+    .user-title:nth-of-type(4) {
+        width: 40%;
+    }
+
+    .user-content__buttons {
+        display: block;
+    }
+
+    .user-content__button {
+        width: 80px;
+    }
+}
