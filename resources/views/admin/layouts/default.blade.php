@@ -1,3 +1,7 @@
+@php
+use App\Models\Top;
+use App\Models\Owner;
+@endphp
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -24,11 +28,16 @@
     </header>
 
     <aside class="section">
+        @if (Auth::user()['email'] === Top::first()['email'])
         <a class="top-header__click top-user" href="/admin/top">ユーザーリスト</a>
-        <a class="top-header__click owner-user" href="/admin/owner">ユーザーリスト</a>
         <a class="top-header__click top-invite" href="/admin/top/invite">招待中リスト</a>
+        @endif
+        @if (Auth::user()['email'] === Owner::first()['email'])
+        <a class="top-header__click owner-user" href="/admin/owner">ユーザーリスト</a>
         <a class="top-header__click owner-invite" href="/admin/owner/invite">招待履歴</a>
+        @endif
         <a class="top-header__click mail" href="/admin/mail">メール送信</a>
+        <a class="top-header__click mail" href="/logout">ログアウト</a>
     </aside>
 
     @if (session('success'))
