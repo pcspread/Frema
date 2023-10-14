@@ -12,6 +12,5 @@ class Top extends Model
     // 編集可能なカラムの設定
     protected $fillable = [
         'email',
-        'password',
     ];
 }

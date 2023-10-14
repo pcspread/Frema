@@ -27,4 +27,13 @@ class OwnerController extends Controller
     {
         return view('admin.owner_invite');
     }
+
+    /**
+     * 管理者側のログアウト処理
+     * @param void
+     * @return view
+     */
+    public function ownerLogout() {
+        return redirect('/')->with('success', 'ログアウトしました');
+    }
 }

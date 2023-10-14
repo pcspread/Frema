@@ -9,6 +9,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\MailController;
+// middleware読込
+use App\Http\Middleware\FirstMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +22,6 @@ use App\Http\Controllers\MailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// ===============================================
-// ↓↓↓↓↓↓消す↓↓↓↓↓↓
-// view表示：auth.send_email
-Route::get('/send/email', function () {
-    return view('auth.send_email');
-});
-// ===============================================
 // ================================================
 // auth関係
 // ================================================
@@ -40,7 +35,7 @@ Route::post('/register', [UserController::class, 'storeRegister']);
 Route::get('/login', [UserController::class, 'indexLogin']);
 
 // login処理
-Route::post('/login', [UserController::class, 'storeLogin']);
+Route::post('/login', [UserController::class, 'storeLogin'])->middleware(FirstMiddleware::class);
 
 // view表示：auth.verify_email
 Route::get('/verify/email', [UserController::class, 'indexMail']);
@@ -55,7 +50,7 @@ Route::get('/thanks', [UserController::class, 'indexThanks']);
 Route::get('/logout', [UserController::class, 'storeLogout']);
 
 // ================================================
-// その他
+// frema関係
 // ================================================
 
 // view表示：items
@@ -113,19 +108,23 @@ Route::get('/sell', [ItemController::class, 'editSell']);
 Route::post('/sell', [ItemController::class, 'updateSell']);
 
 // ================================================
-// admin
+// 管理者側関係
 // ================================================
-// view表示：admin.top_user
-Route::get('/admin/top', [TopController::class, 'indexTopUser']);
-
-// view表示：admin.top_invite
-Route::get('/admin/top/invite', [TopController::class, 'indexTopInvite']);
-
-// view表示：admin.mail
-Route::get('/admin/mail', [MailController::class, 'indexOwnerMail']);
-
-// view表示：admin.top_user
-Route::get('/admin/owner', [OwnerController::class, 'indexOwnerUser']);
-
-// view表示：admin.top_invite
-Route::get('/admin/owner/invite', [OwnerController::class, 'indexOwnerInvite']);
+Route::middleware('auth')->group(function() {
+    // view表示：admin.top_user
+    Route::get('/admin/top', [TopController::class, 'indexTopUser']);
+    
+    // view表示：admin.top_invite
+    Route::get('/admin/top/invite', [TopController::class, 'indexTopInvite']);
+    
+    // view表示：admin.mail
+    Route::get('/admin/mail', [MailController::class, 'indexOwnerMail']);
+    
+    // view表示：admin.top_user
+    Route::get('/admin/owner', [OwnerController::class, 'indexOwnerUser']);
+    
+    // view表示：admin.top_invite
+    Route::get('/admin/owner/invite', [OwnerController::class, 'indexOwnerInvite']);
+    
+    Route::get('/admin/logout', [OwnerController::class, 'ownerLogout']); 
+});

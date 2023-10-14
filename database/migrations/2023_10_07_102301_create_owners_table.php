@@ -15,7 +15,6 @@ return new class extends Migration
             Schema::create('owners', function (Blueprint $table) {
                 $table->id();
                 $table->string('email', 191)->unique();
-                $table->string('password', 191);
                 $table->timestamps();
             });
         }
