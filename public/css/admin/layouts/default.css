@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+.header {
+    height: 8vh;
+    padding: 3px 15px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.header-title__icon {
+    color: #FFF;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #FFF;
+    line-height: 24px;
+    font-size: 24px;
+    transform: rotate(180deg) scale(1.2);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Young Serif', serif;
+}
+
+.header-title__text {
+    margin-left: 5px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 24px;
+}
+
+.section {
+    height: 5vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.top-header__click {
+    display: block;
+    width: 180px;
+    height: 100%;
+    line-height: 5vh;
+    text-align: center;
+    background-color: #EEE;
+    text-decoration: none;
+    border-right: 1px solid #888;
+    color: #666;
+}
+
+.top-header__click:hover {
+    color: #FF3333;
+}
+
+.message-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 400px;
+    width: 100%;
+    background-color: #88FF88;
+    border-radius: 0 0 0 10px;
+    z-index: 15;
+}
+
+.message-box.danger {
+    background-color: #FF5555;
+}
+
+.message-box__text {
+    color: #FFF;
+    font-weight: bold;
+    padding: 15px;
+}
+
+@media screen and (max-width: 820px) {
+    .header {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .top-header__click {
+        height: 8vh;
+        line-height: normal;
+    }
+}
