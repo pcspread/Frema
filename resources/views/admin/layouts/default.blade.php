@@ -24,8 +24,10 @@
     </header>
 
     <aside class="section">
-        <a class="top-header__click user" href="/admin/top">ユーザーリスト</a>
-        <a class="top-header__click invite" href="/admin/top/invite">招待中リスト</a>
+        <a class="top-header__click top-user" href="/admin/top">ユーザーリスト</a>
+        <a class="top-header__click owner-user" href="/admin/owner">ユーザーリスト</a>
+        <a class="top-header__click top-invite" href="/admin/top/invite">招待中リスト</a>
+        <a class="top-header__click owner-invite" href="/admin/owner/invite">招待履歴</a>
         <a class="top-header__click mail" href="/admin/mail">メール送信</a>
     </aside>
 

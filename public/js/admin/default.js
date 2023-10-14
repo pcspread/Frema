@@ -19,16 +19,22 @@ noneComment();
  * ボタンを変色させる
  */
 function changeColor() {
-    const user = document.querySelector('.top-header__click.user');
-    const invite = document.querySelector('.top-header__click.invite');
+    const topUser = document.querySelector('.top-header__click.top-user');
+    const topInvite = document.querySelector('.top-header__click.top-invite');
+    const ownerUser = document.querySelector('.top-header__click.owner-user');
+    const ownerInvite = document.querySelector('.top-header__click.owner-invite');
     const mail = document.querySelector('.top-header__click.mail');
 
     if (location.pathname === '/admin/top') {
-        user.style.backgroundColor = '#CCFFCC';
+        topUser.style.backgroundColor = '#CCFFCC';
     } else if (location.pathname === '/admin/top/invite') {
-        invite.style.backgroundColor = '#CCFFCC';
+        topInvite.style.backgroundColor = '#CCFFCC';
     } else if (location.pathname === '/admin/mail') {
         mail.style.backgroundColor = '#CCFFCC';
+    } else if (location.pathname === '/admin/owner') {
+        ownerUser.style.backgroundColor = '#CCFFCC';
+    } else if (location.pathname === '/admin/owner/invite') {
+        ownerInvite.style.backgroundColor = '#CCFFCC';
     }
 }
 changeColor();

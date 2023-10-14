@@ -7,6 +7,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\MailController;
 
 /*
@@ -122,3 +123,9 @@ Route::get('/admin/top/invite', [TopController::class, 'indexTopInvite']);
 
 // view表示：admin.mail
 Route::get('/admin/mail', [MailController::class, 'indexOwnerMail']);
+
+// view表示：admin.top_user
+Route::get('/admin/owner', [OwnerController::class, 'indexOwnerUser']);
+
+// view表示：admin.top_invite
+Route::get('/admin/owner/invite', [OwnerController::class, 'indexOwnerInvite']);
