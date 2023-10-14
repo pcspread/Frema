@@ -113,7 +113,13 @@ Route::post('/sell', [ItemController::class, 'updateSell']);
 Route::middleware('auth')->group(function() {
     // view表示：admin.top_user
     Route::get('/admin/top', [TopController::class, 'indexTopUser']);
+
+    // create処理：ユーザーの招待処理
+    Route::post('/admin/top', [TopController::class, 'createTopUser']);
     
+    // delete処理：ユーザー削除処理
+    Route::delete('/admin/top', [TopController::class, 'destroyTopUser']);
+
     // view表示：admin.top_invite
     Route::get('/admin/top/invite', [TopController::class, 'indexTopInvite']);
     
