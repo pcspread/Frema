@@ -19,27 +19,33 @@
                     <p class="invite-title__text">メールアドレス</p>
                 </th>
                 <th class="invite-title">
-                    <p class="invite-title__text">履歴時間</p>
+                    <p class="invite-title__text">招待時間</p>
                 </th>
-                <th class="invite-title"></th>
             </tr>
-            @for ($i = 1; $i <= 8; $i++)
+            @foreach ($invites as $invite)
             <tr class="invite-record">
                 <td class="invite-content">
-                    <p class="invite-content__text">{{ $i }}</p>
+                    <p class="invite-content__text">{{ $invite->user['id'] }}</p>
                 </td>
                 <td class="invite-content">
-                    <p class="invite-content__text">ユーザー{{ $i }}</p>
+                    <p class="invite-content__text">{{ $invite->user['name'] }}</p>
                 </td>
                 <td class="invite-content">
-                    <p class="invite-content__text">test{{ $i }}@test.com</p>
+                    <p class="invite-content__text">{{ $invite->user['email'] }}</p>
                 </td>
                 <td class="invite-content">
-                    <p class="invite-content__text">2023/11/01 11:11:11 </p>
+                    <p class="invite-content__text">{{ $invite['created_at'] }}</p>
                 </td>
-                <td class="invite-content"></td>
             </tr>
-            @endfor
+            @endforeach
+
+            @if (count($invites) === 0)
+            <tr class="invite-record">
+                <td class="invite-content" colspan="4">
+                    招待履歴がありません
+                </td>
+            </tr>
+            @endif
         </table>
     </div>
 @endsection

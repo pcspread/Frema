@@ -59,7 +59,7 @@ class TopController extends Controller
         // delete処理
         User::find($request['id'])->delete();
 
-        return back()->with('success', '削除しました');
+        return back()->with('success', "ID「{$request['id']}」のデータを削除しました");
     }
 
     /**
@@ -70,6 +70,42 @@ class TopController extends Controller
      */
     public function indexTopInvite()
     {
-        return view('admin.top_invite');
+        // 招待情報を全件取得
+        $invites = Invite::all();
+
+        // 格納用の配列を用意
+        $array = [];
+
+        // 招待中のユーザーデータを取得
+        foreach ($invites as $invite) {
+            $user = User::find($invite['user_id']);
+            if (!empty($user)) {
+                $array[] = $user;
+            }
+        }
+
+        // コレクションを作成
+        $users = collect($array);
+
+        return view('admin.top_invite', compact('users'));
+    }
+
+    /**
+     * 招待者のキャンセル処理
+     * @param object $request
+     * @return back
+     */
+    public function updateTopInvite(Request $request)
+    {
+        // delete処理
+        Invite::where('user_id', $request->id)->delete();
+        
+        $name = User::find($request->id)['name'];
+
+        if (empty($name)) {
+            return back()->with('success', '招待をキャンセルしました');
+        } else {
+            return back()->with('success', "「{$name}」の招待をキャンセルしました");
+        }
     }
 }

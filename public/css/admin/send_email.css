@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.email-title {
+    padding: 15px;
+    background-color: #666;
+    font-size: 32px;
+    color: #FFF;
+    text-align: center;
+}
+
+.main {
+    padding: 24px;
+    background-color: #EEE;
+}
+
+.email-content {
+    border: 1px solid #888;
+    border-radius: 3px;
+    padding: 15px;
+    background-color: #FFF;
+}
+
+.email-content__title {
+    margin: 15px 0 5px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}

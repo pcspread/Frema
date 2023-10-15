@@ -14,7 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('messages')) {
             Schema::create('messages', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
+                $table->string('title');
                 $table->text('content');
                 $table->timestamps();
             });

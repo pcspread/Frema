@@ -69,7 +69,7 @@ class ItemController extends Controller
      */
     public function showItemDetail($id)
     {
-        // アイテム情報の取得
+        // 商品情報の取得
         $item = Item::find($id);
 
         // お気に入り数の取得
@@ -88,7 +88,7 @@ class ItemController extends Controller
      */
     public function operateFavorite($id)
     {
-        if (empty(Favorite::where('item_id', $id)->first())) {
+        if (empty(Favorite::where('user_id', Auth::id())->where('item_id', $id)->first())) {
             // create処理
             Favorite::create([
                 'user_id' => Auth::id(),
@@ -97,7 +97,7 @@ class ItemController extends Controller
             return redirect("/item/{$id}")->with('success', 'お気に入りに登録しました');
         } else {
             // delete処理
-            Favorite::where('item_id', $id)->first()->delete();
+            Favorite::where('user_id', Auth::id())->where('item_id', $id)->first()->delete();
             return redirect("/item/{$id}")->with('success', 'お気に入りを解除しました');
         }
     }
@@ -185,8 +185,8 @@ class ItemController extends Controller
     public function editSell()
     {
         // ログインしていない場合
-        if (!Auth::check()) {
-            return back()->with('danger', '出品される場合はログインが必要です');
+        if (empty(Auth::user()->invite)) {
+            return back()->with('danger', '出品には管理者の許可が必要です');
         }
 
         // ブランド情報を取得

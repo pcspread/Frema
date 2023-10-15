@@ -21,24 +21,33 @@
                 <th class="invite-title"></th>
                 <th class="invite-title"></th>
             </tr>
-            @for ($i = 1; $i <= 8; $i++)
+            @foreach ($users as $user)
             <tr class="invite-record">
                 <td class="invite-content">
-                    <p class="invite-content__text">{{ $i }}</p>
+                    <p class="invite-content__text">{{ $user['id'] }}</p>
                 </td>
                 <td class="invite-content">
-                    <p class="invite-content__text">ユーザー{{ $i }}</p>
+                    <p class="invite-content__text">{{ $user['name'] }}</p>
                 </td>
                 <td class="invite-content">
-                    <p class="invite-content__text">test{{ $i }}@test.com</p>
+                    <p class="invite-content__text">{{ $user['email'] }}</p>
                 </td>
                 <td class="invite-content">
-                    <form class="invite-comtent__form" action="">
+                    <form class="invite-comtent__form" action="/admin/top/invite" method="POST">
+                    @csrf
+                        <input type="hidden" name="id" value="{{ $user['id'] }}">
                         <button class="invite-content__button cancel">キャンセルする</button>
                     </form>
                 </td>
             </tr>
-            @endfor
+            @endforeach
+            @if (count($users) === 0)
+            <tr class="invite-record">
+                <td class="invite-content" colspan="4">
+                    招待中のユーザーデータがありません
+                </td>
+            </tr>
+            @endif
         </table>
     </div>
 @endsection

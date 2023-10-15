@@ -25,6 +25,12 @@
             </a>
         </div>
         @endforeach
+
+        @if (count($items) === 0)
+        <div class="items-item">
+            商品がありません
+        </div>
+        @endif
     </div>
 </div>
 @endsection

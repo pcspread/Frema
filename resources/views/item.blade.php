@@ -1,3 +1,6 @@
+@php
+use App\Models\Favorite;
+@endphp
 @extends('layouts.default')
 
 @section('css')
@@ -31,7 +34,7 @@
                 <form class="item-favorite__form" action="/item/{{ $item['id'] }}
                 " method="POST">
                 @csrf
-                    @if (empty($item->favorite))
+                    @if (empty(Favorite::where('user_id', Auth::id())->where('item_id', $item['id'])->first()))
                     <button class="item-favorite__click">☆</button>
                     @else
                     <button class="item-favorite__click favorite">★</button>
