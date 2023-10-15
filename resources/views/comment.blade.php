@@ -1,3 +1,6 @@
+@php
+use App\Models\Favorite;
+@endphp
 @extends('layouts.default')
 
 @section('css')
@@ -32,11 +35,16 @@
     
             <div class="item-impression">
                 <div class="item-favorite">
-                    <form class="item-favorite__form" action="
-                    ">
+                    <form class="item-favorite__form" action="/item/{{ $item['id'] }}/comment" method="POST">
+                    @method('PATCH')
+                    @csrf
+                        @if (empty(Favorite::where('user_id', Auth::id())->where('item_id', $item['id'])->first()))
                         <button class="item-favorite__click">☆</button>
+                        @else
+                        <button class="item-favorite__click favorite" >★</button>
+                        @endif
                     </form>
-                    <p class="item-favotite__number">3</p>
+                    <p class="item-favotite__number">{{ $favorite }}</p>
                 </div>
         
                 <div class="item-comment">
@@ -45,6 +53,7 @@
                 </div>
             </div>
     
+            @if (Auth::user()->invite)
             <div class="purchase-content">
                 <form class="purchase-content__form" action="/item/{{ $item['id'] }}/comment" method="POST">
                 @csrf
@@ -79,6 +88,7 @@
                     <button class="purchase-button__instance">コメントを送信する</button>
                 </form>
             </div>
+            @endif
         </div>
     </div>
 

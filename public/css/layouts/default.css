@@ -34,8 +34,30 @@
     font-size: 24px;
 }
 
+.header-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header-search__input {
     padding: 3px 24px;
+}
+
+.header-search__fresh {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 2px solid #FFF;
+    border-radius: 90px;
+    text-align: center;
+    text-decoration: none;
+    /* font-weight: bold; */
+    color: #FFF;
+}
+
+.header-search__fresh:hover {
+    transform: scale(1.1);
 }
 
 .nav-list {

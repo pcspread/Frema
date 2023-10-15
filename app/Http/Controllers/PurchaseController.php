@@ -106,7 +106,7 @@ class PurchaseController extends Controller
                 $purchase = 'コンビニ払い';
                 break;
             case 'case2':
-                $purchase = '口座振替';
+                $purchase = '銀行振込';
                 break;
             case 'case3':
                 $purchase = '現金払い';

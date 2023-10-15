@@ -61,4 +61,17 @@ class User extends Authenticatable
     {
         return $this->hasOne(Invite::class);
     }
+
+    /**
+     * 同時削除設定
+     * usersテーブル論理削除した際にinvitesテーブルを物理削除
+     * @param void
+     * @return void
+     */
+    public static function booted()
+    {
+        static::deleted(function ($user) {
+            $user->invite()->delete();
+        });
+    }
 }

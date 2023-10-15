@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/admin/top_user.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/admin/top_user.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="user-section">
     <div class="user-list">
@@ -47,12 +51,20 @@
                         @method('DELETE')
                         @csrf
                             <input type="hidden" name="id" value="{{ $user['id'] }}">
-                            <button class="user-content__button delete">削除</button>
+                            <button class="user-content__button delete" onClick="return confirmDel()">削除</button>
                         </form>
                     </div>
                 </td>
             </tr>
             @endforeach
+            
+            @if (count($users) === 0)
+            <tr class="user-record">
+                <td class="user-content" colspan="4">
+                    ユーザーデータがありません
+                </td>
+            </tr>
+            @endif
         </table>
     </div>
 @endsection

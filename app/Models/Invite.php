@@ -13,4 +13,14 @@ class Invite extends Model
     protected $fillable = [
         'user_id',
     ];
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return 
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

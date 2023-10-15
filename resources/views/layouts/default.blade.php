@@ -24,6 +24,7 @@
 
         <div class="header-search">
             <input class="header-search__input" type="text" placeholder="なにをお探しですか？">
+            <a class="header-search__fresh" href="/">✖</a>
         </div>
         
         <div class="header-nav">

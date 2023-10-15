@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Brand;
 use App\Models\Comment;
+use App\Models\Favorite;
 // Request読込
 use App\Http\Requests\CommentRequest;
 // Auth読込
@@ -28,10 +29,13 @@ class CommentController extends Controller
         // ブランド名を取得
         $brand = Brand::where('id', $item['brand_id'])->first()['name'];
 
+        // お気に入り数の取得
+        $favorite = count(Favorite::where('item_id', $id)->get());
+
         // コメント情報の取得
         $comments = Comment::where('item_id', $id)->get();
 
-        return view('comment', compact('item', 'brand', 'comments'));
+        return view('comment', compact('item', 'brand', 'favorite', 'comments'));
     }
 
     /**
@@ -65,5 +69,30 @@ class CommentController extends Controller
         ]);
 
         return back()->with('success', 'コメントを送信しました');
+    }
+
+    /**
+     * お気に入り登録処理(comment)
+     * @param int $id
+     * @return back
+     */
+    public function favoriteComment($id)
+    {
+        // お気に入り登録情報の取得
+        $favorite = Favorite::where('item_id', $id)->where('user_id', Auth::id())->first();
+        // お気に入り登録されていない場合
+        if (empty($favorite)) {
+            // お気に入り登録処理
+            Favorite::create([
+                'user_id' => Auth::id(),
+                'item_id' => $id,
+            ]);
+
+            return redirect("/item/{$id}/comment")->with('success', 'お気に入り登録しました');
+        } else {
+            // お気に入り登録されている場合
+            $favorite->delete();
+            return redirect("/item/{$id}/comment")->with('success', 'お気に入り登録を解除しました');
+        }
     }
 }

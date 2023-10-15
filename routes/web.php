@@ -89,6 +89,9 @@ Route::get('/item/{id}/comment', [CommentController::class, 'showComment']);
 // コメント送信処理
 Route::post('/item/{id}/comment', [CommentController::class, 'updateComment']);
 
+// お気に入り登録処理(comment)
+Route::patch('/item/{id}/comment', [CommentController::class, 'favoriteComment']);
+
 // view表示：mypage
 Route::get('/mypage', [ItemController::class, 'showMypage']);
 
@@ -122,15 +125,22 @@ Route::middleware('auth')->group(function() {
 
     // view表示：admin.top_invite
     Route::get('/admin/top/invite', [TopController::class, 'indexTopInvite']);
+
+    // 招待者のキャンセル処理
+    Route::post('/admin/top/invite', [TopController::class, 'updateTopInvite']);
     
     // view表示：admin.mail
     Route::get('/admin/mail', [MailController::class, 'indexOwnerMail']);
+
+    // メール送信処理
+    Route::post('/admin/mail', [MailController::class, 'storeOwnerMail']);
     
-    // view表示：admin.top_user
+    // view表示：admin.owner_user
     Route::get('/admin/owner', [OwnerController::class, 'indexOwnerUser']);
+
+    // ユーザー削除処理
+    Route::delete('/admin/owner', [OwnerController::class, 'destroyOwnerUser']);
     
-    // view表示：admin.top_invite
+    // view表示：admin.owner_invite
     Route::get('/admin/owner/invite', [OwnerController::class, 'indexOwnerInvite']);
-    
-    Route::get('/admin/logout', [OwnerController::class, 'ownerLogout']); 
 });

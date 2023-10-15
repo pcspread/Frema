@@ -48,8 +48,32 @@
     vertical-align: middle;
 }
 
+.user-comtent__group {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
 .user-content__form {
     text-align: right;
+}
+
+.user-content__invite {
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    margin-left: auto;
+    padding: 0 5px;
+    border: none;
+    border-radius: 3px;
+    color: #FFF;
+    background-color: #60CCAA;
+}
+
+.user-content__invite.false {
+    background-color: #CCC;
 }
 
 .user-content__button {
@@ -63,6 +87,11 @@
     border-radius: 3px;
     color: #FFF;
     background-color: #FF5555;
+}
+
+.user-content__button:hover {
+    cursor: pointer;
+    opacity: .7;
 }
 
 @media screen and (max-width: 480px) {
@@ -80,8 +109,15 @@
         width: 40%;
     }
 
+    .user-comtent__group {
+        display: block;
+    }
+
+    .user-content__invite {
+        width: 80px;
+    }
+
     .user-content__button {
         width: 80px;
-        height: 60px;
     }
 }

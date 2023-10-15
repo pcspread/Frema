@@ -23,7 +23,11 @@ use App\Models\Owner;
     <header class="header">
         <div class="header-title">
             <span class="header-title__icon">D</span>
-            <a class="header-title__text" href="/">COACHTECH</a>
+            @if (Auth::user()['email'] === Top::first()['email'])
+            <a class="header-title__text" href="/admin/top">COACHTECH</a>
+            @elseif (Auth::user()['email'] === Owner::first()['email'])
+            <a class="header-title__text" href="/admin/owner">COACHTECH</a>
+            @endif
         </div>
     </header>
 
@@ -31,8 +35,7 @@ use App\Models\Owner;
         @if (Auth::user()['email'] === Top::first()['email'])
         <a class="top-header__click top-user" href="/admin/top">ユーザーリスト</a>
         <a class="top-header__click top-invite" href="/admin/top/invite">招待中リスト</a>
-        @endif
-        @if (Auth::user()['email'] === Owner::first()['email'])
+        @elseif (Auth::user()['email'] === Owner::first()['email'])
         <a class="top-header__click owner-user" href="/admin/owner">ユーザーリスト</a>
         <a class="top-header__click owner-invite" href="/admin/owner/invite">招待履歴</a>
         @endif
