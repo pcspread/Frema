@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             $param = [
                 'email' => "test{$i}@test.com",
                 'password' => Hash::make('test1111'),
+                'name' => "ユーザー{$i}",
                 'email_verified_at' => Carbon::now()->__toString(),
                 'remember_token' => Hash::make('remember_token'),
                 'created_at' => Carbon::now()->__toString(),

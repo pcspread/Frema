@@ -20,7 +20,7 @@ use App\Models\Owner;
     @yield('js')
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="top">
         <div class="header-title">
             <span class="header-title__icon">D</span>
             @if (Auth::user()['email'] === Top::first()['email'])
@@ -58,5 +58,9 @@ use App\Models\Owner;
     <main class="main">
         @yield('content')
     </main>
+
+    <div class="upper">
+        <a class="upper-click" href="#top"><</a>
+    </div>
 </body>
 </html>

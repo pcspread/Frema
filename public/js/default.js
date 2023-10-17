@@ -14,3 +14,19 @@ function noneComment() {
     }, 4500);
 }
 noneComment();
+
+/**
+ * 上方へ移動するボタンの出現と消失
+ */
+function upperDisplay() {
+    const upper = document.querySelector('.upper');
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 0) {
+            upper.style.display = 'block';
+        } else {
+            upper.style.display = 'none';
+        }
+    });
+}
+upperDisplay();
