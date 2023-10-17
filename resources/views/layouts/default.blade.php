@@ -16,7 +16,7 @@
     @yield('js')
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="top">
         <div class="header-title">
             <span class="header-title__icon">D</span>
             <a class="header-title__text" href="/">COACHTECH</a>
@@ -51,20 +51,26 @@
         </div>
     </header>
 
-    @if (session('success'))
-    <div class="message-box success">
-        <p class="message-box__text success">{{ session('success') }}</p>
-    </div>
-    @endif
-
-    @if (session('danger'))
-    <div class="message-box danger">
-        <p class="message-box__text danger">{{ session('danger') }}</p>
-    </div>
-    @endif
-
     <main class="main">
         @yield('content')
     </main>
+
+    <aside class="aside">
+        @if (session('success'))
+        <div class="message-box success">
+            <p class="message-box__text success">{{ session('success') }}</p>
+        </div>
+        @endif
+
+        @if (session('danger'))
+        <div class="message-box danger">
+            <p class="message-box__text danger">{{ session('danger') }}</p>
+        </div>
+        @endif
+        
+        <div class="upper">
+            <a class="upper-click" href="#top">></a>
+        </div>
+    </aside>
 </body>
 </html>
