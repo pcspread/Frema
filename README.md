@@ -5,10 +5,12 @@
 
 ■ プロダクト概要<br />
 ・ある企業が開発した独自のフリマアプリ<br />
-・ショップスタッフが出品した商品を、ユーザーが閲覧して購入するアプリ
-・管理者画面では、ショップスタッフの招待やメール送信を行う
+・ショップスタッフが出品した商品を、ユーザーが閲覧して購入するアプリ<br />
+・管理者画面では、ショップスタッフの招待やメール送信を行う<br />
 
-■ トップ画像
+■ トップ画像<br />
+![Alt text](image-7.png)
+
 ## 作成した目的
 ・coachtechブランドのアイテムを出品する<br />
 
@@ -74,45 +76,68 @@ Mailpit<br />
 
 ## 環境構築
 ■ 開発環境<br />
-・土台<br />
- Docker<br />
- LinuxOS<br />
-・操作<br />
- ubuntu<br />
- VSCode<br />
-・サーバー<br />
- nginx<br />
-・データベース<br />
- mysql<br />
-・管理<br />
- Git<br />
- GitHub<br />
+[土台]<br />
+Docker<br />
+LinuxOS<br />
+[操作]<br />
+ubuntu<br />
+VSCode<br />
+[サーバー]<br />
+nginx<br />
+[データベース]<br />
+mysql<br />
+[管理]<br />
+Git<br />
+GitHub<br />
 
 ■ 環境構築方法<br />
-Laravel sailを使用
-(1)curl -s https://laravel.build/Frema | bash<br />
-(2)cd Frema<br />
-(3)sail up -d<br />
+Laravel sailを使用<br />
+(1)Laravelプロジェクト作成<br />
+```bash
+curl -s https://laravel.build/Frema | bash
+```
+(2)Laravelプロジェクトへ移動<br />
+```bash
+cd Frema
+```
+(3)コンテナ起動<br />
+```bash
+sail up -d
+```
 
 ■ GitCloneの場合<br />
-(1)git clone git@github.com:pcspread/Frema.git<br />
-(2)cp .env.example .env<br />
+(1)Git Clone<br />
+```bash
+git clone git@github.com:pcspread/Frema.git
+```
+(2)envファイル作成<br />
+```bash
+cp .env.example .env
+```
 (3)envファイル修正<br />
+```bash
 DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=frema
 DB_USERNAME=sail
 DB_PASSWORD=password
+```
 (4)PHPパッケージインストール<br />
-docker run --rm \<br />
-  -v $(pwd):/opt \<br />
-  -w /opt \<br />
-  laravelsail/php81-composer:latest \<br />
-  bash -c "composer install"<br />
+```bash
+docker run --rm \
+  -v $(pwd):/opt \
+  -w /opt \
+  laravelsail/php81-composer:latest \
+  bash -c "composer install"
+```
 (5)Dockerコンテナ起動<br />
-sail up -d<br />
+```bash
+sail up -d
+```
 (6)アクセスキー作成<br />
-sail artisan key:generate<br />
+```bash
+sail artisan key:generate
+```
 
 ## その他
 ■ ダミーデータ<br />
@@ -122,9 +147,12 @@ sail artisan key:generate<br />
 ・カテゴリー　　：６件<br />
 ・コンディション：５件<br />
 ・商品　　　　　：４０件<br />
-・ユーザー　　　：７件(ダミーユーザー＋店舗代表者＋管理者)<br />
+・ユーザー　　　：７件<br />
+(ダミーユーザー＋店舗代表者＋管理者)<br />
 ★下記で作成<br />
-sail artisan migrate:fresh --seed<br />
+```bash
+sail artisan migrate:fresh --seed
+```
 
 ■ ログイン用ダミーデータ<br />
 [一般ユーザー]<br />
