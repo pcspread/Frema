@@ -91,7 +91,7 @@ Git<br />
 GitHub<br />
 
 ■ 環境構築方法<br />
-Laravel sailを使用<br />
+１、Laravel sailを使用して構築<br />
 (1)Laravelプロジェクト作成<br />
 ```bash
 curl -s https://laravel.build/Frema | bash
@@ -105,7 +105,7 @@ cd Frema
 sail up -d
 ```
 
-■ GitCloneの場合<br />
+２、GitCloneの場合<br />
 (1)Git Clone<br />
 ```bash
 git clone git@github.com:pcspread/Frema.git
