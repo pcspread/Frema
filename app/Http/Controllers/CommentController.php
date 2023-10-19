@@ -33,7 +33,7 @@ class CommentController extends Controller
         $favorite = count(Favorite::where('item_id', $id)->get());
 
         // コメント情報の取得
-        $comments = Comment::where('item_id', $id)->get();
+        $comments = Comment::where('item_id', $id)->orderBy('created_at', 'desc')->get();
 
         return view('comment', compact('item', 'brand', 'favorite', 'comments'));
     }
