@@ -9,6 +9,7 @@ use App\Http\Requests\MessageRequest;
 use App\Models\User;
 use App\Models\Top;
 use App\Models\Owner;
+use App\Models\Message;
 // Mail読込
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OwnerMail;
@@ -36,6 +37,9 @@ class MailController extends Controller
     {
         // フォーム情報の取得
         $form = $request->only('title', 'content');
+
+        // create処理
+        Message::create($form);
 
         // ユーザーデータを全件取得(top,owner以外)
         $users = User::where('email', '!=', Top::find(1)['email'])->where('email', '!=', Owner::find(1)['email'])->get();
