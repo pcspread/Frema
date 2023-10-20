@@ -134,7 +134,7 @@ docker run --rm \
 ```bash
 sail up -d
 ```
-(6)アクセスキー作成<br />
+(6)アプリケーションキー作成<br />
 ```bash
 sail artisan key:generate
 ```
