@@ -113,7 +113,7 @@ Route::post('/sell', [ItemController::class, 'updateSell']);
 // ================================================
 // 管理者側関係
 // ================================================
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth', 'verified'])->group(function() {
     // view表示：admin.top_user
     Route::get('/admin/top', [TopController::class, 'indexTopUser']);
 

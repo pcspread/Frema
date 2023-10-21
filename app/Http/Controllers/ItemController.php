@@ -44,8 +44,8 @@ class ItemController extends Controller
      */
      public function indexItemFavorite()
      {
-        // お気に入り商品を選定
-        $favorites = Favorite::select('item_id')->get();
+        // 該当ユーザーのお気に入り商品を取得
+        $favorites = Favorite::where('user_id', Auth::id())->get();
 
         // 商品データ格納用の変数を定義
         $records = [];
