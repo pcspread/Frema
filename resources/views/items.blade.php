@@ -12,7 +12,9 @@
 <div class="items-section">
     <div class="select">
         <a class="select-item recommend" href="/">おすすめ</a>
+        @if (Auth::check())
         <a class="select-item favorite" href="/favorite">マイリスト</a>
+        @endif
     </div>
     
     <div class="items">
