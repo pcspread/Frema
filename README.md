@@ -15,7 +15,11 @@
 ・coachtechブランドのアイテムを出品する<br />
 
 ## アプリケーション URL
-ローカル環境で作成しています。<br />
+(1)本番環境<br />
+https://xs668003.xsrv.jp/<br />
+※xserverへデプロイ
+
+(2)ローカル環境<br />
 [アプリ]<br />
  localhost/<br />
 [MailHog]<br />
