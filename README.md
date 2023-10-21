@@ -73,7 +73,7 @@ Mailpit<br />
 ![Alt text](image-6.png)
 
 ## ER 図
-![Alt text](image.png)
+![Alt text](image-8.png)
 
 ## 画面遷移図
 ![Alt text](image-1.png)
